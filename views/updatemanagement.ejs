@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .wwww{
+        border-radius: 20px;
+      }
+      .bbbb{
+        font-size:17px;
+      }
+      .cccc{
+        height:28px;
+        border-radius: 2px;
+        margin:5px;
+      }
+
+    </style>
+  </head>
+  <body style="background-image: url('../Login_v4/images/bg-01.jpg');background-size:cover;background-repeat:no-repeat;">
+<center>
+<div class="col-md-4 col-md-offset-5" style="border-radius:10px;">
+  <div class="toggle well" style="box-shadow:3px 3px 10px black;width:400px;height:500px; margin-top:80px;">
+       <form action="/admins/managementupdate" method="POST"  class="form-horizontal" class="form-horizontal"  onkeypress="" style="background-color:white;height:500px;">
+         <input type="hidden" name="id" value="<%= management._id%>">
+         <div style="padding-top:30px;">
+           <h3>Update Staffmanagement info !</h3>
+           <style type="text/css">
+               .glyphicon{
+                   /* font-size: 20px; */
+
+               }
+           </style>
+           <div class="form-group"  style="padding-right: 50px;">
+               <label for="" class="control-label col-md-4" style="padding-right: 50px;">Name :</label>
+               <input type="text" class="col-md-7" placeholder="" name="name" value="<%= management.Name%>">
+
+           </div>
+
+
+           <div class="form-group"  style="padding-right: 50px;">
+               <label for="" class="control-label col-md-4" style="padding-right: 50px;">Age :</label>
+               <input type="number" class="col-md-7" placeholder="" name="age" value="<%= management.Age%>">
+
+           </div>
+
+
+           <!-- <div class="form-group"  style="padding-right: 50px;">
+               <label for="" class="control-label col-md-4" style="padding-right: 50px;">Relationship:</label>
+               <input type="text" class="col-md-7" placeholder="eg.Single" name="relationship" value="<%= management.Relationship%>">
+
+           </div> -->
+
+
+           <div class="form-group"  style="padding-right: 50px;">
+               <label for="" class="control-label col-md-4" style="padding-right: 50px;">Address :</label>
+               <input type="text" class="col-md-7" placeholder="" name="address" ondragover="" value="<%= management.Address%>">
+
+           </div>
+
+           <div class="form-group"  style="padding-right: 50px;">
+               <label for="" class="control-label col-md-4" style="padding-right: 50px;">Start Date :</label>
+               <input type="Date" class="col-md-7" placeholder="" name="startdate" value="<%= management.startDate%>">
+
+           </div>
+<!--
+           <div class="form-group"  style="padding-right: 50px;">
+               <label for="" class="control-label col-md-4" style="padding-right: 50px;">Education :</label>
+               <input type="text" class="col-md-7"   name="eduction" value="<%= management.Education%>">
+
+
+           </div> -->
+
+           <div class="form-group"  style="padding-right: 50px;">
+               <label for="" class="control-label col-md-4" style="padding-right: 50px;">Email :</label>
+               <input type="email" class="col-md-7" data-validate="email required" required="@gmail.com" placeholder="@gmail.com" name="email" value="<%= management.Email%>">
+
+           </div>
+
+           <div class="form-group"  style="padding-right: 50px;">
+               <label for="" class="control-label col-md-4" style="padding-right: 50px;">NRC no :</label>
+               <input type="text" class="col-md-7" placeholder="Your NRC" name="nrcno" value="<%= management.NRCno%>">
+
+           </div>
+
+           <div class="form-group"  style="padding-right: 50px;">
+               <label for="" class="control-label col-md-4" style="padding-right: 50px;">Password :</label>
+               <input type="password" class="col-md-7" placeholder="" name="password" value="<%= management.Password%>">
+
+           </div>
+
+           <div class="form-group"  style="padding-right: 50px;">
+               <label  class="control-label col-md-4" style="padding-right: 50px;">Gender :</label>
+               <select style="width: 275px;" name="gender" value="<%= management.Gender%>">
+                   <option value="male">Male</option>
+                   <option value="female">Female</option>
+
+               </select>
+
+           </div>
+
+               <br>
+           <style type="text/css">
+               .button{
+                   background-color: #245718;
+                   width: 70px;
+                   height: 30px;
+                   text-align: center;
+                   text-decoration: none;
+                   color: white;
+                   border-radius: 6px;
+               }
+                .cancel{
+                   background-color: #97190B;
+                   width: 70px;
+                   height: 30px;
+                   text-align: center;
+                   text-decoration: none;
+                   color: white;
+                   border-radius: 6px;
+               }
+           </style><br>
+
+
+
+           <center>
+             <input type="submit" value="Confirm" class="button">&nbsp;
+             <input type="reset" value="Cancel" class="cancel">
+           </center>
+
+           </div>
+       <br><br>
+       </form>
+   </div>
+  </body>
+</html>

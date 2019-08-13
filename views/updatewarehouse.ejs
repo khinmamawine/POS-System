@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .wwww{
+        border-radius: 20px;
+      }
+      .bbbb{
+        font-size:17px;
+      }
+      .cccc{
+        height:28px;
+        border-radius: 2px;
+        margin:5px;
+      }
+
+    </style>
+
+  </head>
+  <body style="background-image: url('../Login_v4/images/bg-01.jpg');background-size:cover;background-repeat:no-repeat;">
+<center>
+<div class="col-md-4 col-md-offset-5" style="border-radius:10px;">
+  <div class="toggle well" style="box-shadow:3px 3px 10px black;width:400px;height:500px; margin-top:80px;">
+        <form action="/admins/warehouseupdate" method="POST" class="form-horizontal"   onkeypress="" style="background-color:white;height:500px;">
+          <input type="hidden" name="id" value="<%=warehouse._id%>">
+          <div style="padding-top:30px;">
+            <h3>Update warehouse info !</h3>
+            <table>
+                <tr>
+                    <td style="padding: 3px;">
+                        <label for="itemtype" class="col-md-6" style="width:150px; text-align: right;">Item_Type:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="col-md-6" id="itemtype" style="width: 200px;" name="itemtype" value="<%= warehouse.itemType%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 3px;">
+                        <label for="barcode" class="col-md-6" style="width:150px; text-align: right;">Barcode:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="col-md-6" id="barcode" style="width: 200px;" name="barcode" value="<%= warehouse.barCode%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 3px;">
+                        <label for="itemname" class="col-md-6" style="width:150px; text-align: right;">Item_Name:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="col-md-6" id="itemname" style="width: 200px;" name="itemname" value="<%= warehouse.itemName%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 3px;">
+                        <label for="brandname" class="col-md-6" style="width:150px; text-align: right;">Brand_Name:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="col-md-6" id="brandname" style="width: 200px;" name="brandname" value="<%= warehouse.brandName%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 3px;">
+                        <label for="companyname" class="col-md-6" style="width:150px; text-align: right;">Company_Name:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="col-md-6" id="companyname" style="width: 200px;" name="companyname" value="<%= warehouse.companyName%>">
+                    </td>
+                </tr><br>
+                <tr>
+                    <td style="padding: 3px;">
+                        <label for="purchaseprice" class="col-md-6" style="width:150px; text-align: right;">Purchase_Price:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="col-md-6" id="purchaseprice" style="width: 200px;" name="purchaseprice" value="<%= warehouse.purchasePrice%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 3px;">
+                        <label for="saleeprice" class="col-md-6" style="width:150px; text-align: right;">Sale_Price:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="col-md-6" id="saleeprice" style="width: 200px;" name="saleprice" value="<%= warehouse.salePrice%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 3px;"><label for="qty" class="col-md-6" style="width:150px; text-align: right;">Qty:</label></td>
+                    <td><input type="text" class="col-md-6" id="qty" style="width: 200px;" name="qty" value="<%= warehouse.Qty%>"></td>
+                </tr>
+                <tr>
+                    <td style="padding: 3px;"><label for="startdate" class="col-md-6" style="width:150px; text-align: right;">Start_Date:</label></td>
+                    <td><input type="date" class="col-md-6" id="startdate" style="width: 200px;" name="startdate" value="<%= warehouse.startDate%>"></td>
+                </tr>
+                <tr>
+                    <td style="padding: 3px;"><label for="expdate" class="col-md-6" style="width:150px; text-align: right;">Expire_Date:</label></td>
+                    <td><input type="date" class="col-md-6" id="expdate" style="width: 200px;" name="expdate" value="<%= warehouse.expDate%>"></td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 3px;"><label for="remark" class="col-md-6" style="width:150px; text-align: right;">Disscount:</label></td>
+                    <td><input type="text" class="col-md-6" id="remark" style="width: 200px;" name="disscount" value="<%= warehouse.disscount%>"></td>
+                </tr>
+            </table>
+                <br>
+                    <style type="text/css">
+                .button{
+                    background-color: #37790B;
+                    width: 70px;
+                    height: 30px;
+                    text-align: center;
+                    text-decoration: none;
+                    color: white;
+                    border-radius: 5px;
+                }
+                 .cancel{
+                    background-color: #97190B;
+                    width: 70px;
+                    height: 30px;
+                    text-align: center;
+                    text-decoration: none;
+                    color: white;
+                    border-radius: 5px;
+                }
+            </style><br>
+            <center>
+              <input type="submit" value="Confirm" class="button">&nbsp;
+              <input type="reset" value="Cancel" class="cancel">
+            </center>
+
+            </div>
+        <br><br>
+        </form>
+
+    </div>
+  </body>
+</html>

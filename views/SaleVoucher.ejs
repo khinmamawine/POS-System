@@ -1,0 +1,214 @@
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DASHBOARD</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap Lesson</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <!--   <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
+     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="nav navbar-justify">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#one">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <form action="" style="background-image: linear-gradient(to bottom right,#5b247a,#1AA7A0,#5b247a) ;color: white;">
+                <table>
+                    <tr>
+                        <th><h2> &nbsp;&nbsp;&nbsp;&nbsp;Wine Cosmetic Shop&nbsp;&nbsp;&nbsp;&nbsp;</h2></th>
+                        <th><h5> <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Point Of Sale System&nbsp;&nbsp;  </h5></th>
+                    </tr>
+                    <tr>
+                        <td>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mya yamon kantharya realty,ThinGanGyun&nbsp;&nbsp;<br>  <br></td>
+                        <td>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ph no::09250307723<br><br>  </td>
+                    </tr>
+                </table>
+                </form>
+                </nav>
+            </div>
+<!-- -----------------------------------pager------------------------- -->
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="pager">
+                        <li class="previous"><span class="glyphicon glyphicon-list"style="padding-bottom: 8px;font-size: 20px;">&nbsp;/Sale</span></li>
+                        <!-- <li class="next"><a href="Admin.html"><span class="glyphicon glyphicon-home"style="padding-top: 8px;">&nbsp;/Admin Page<br><br></span></a></li> -->
+                    </ol>
+                </div>
+            </div>
+    <!-- -----------------------------------form------------------------------------- -->
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset>
+                        <legend><i>Sale Voucher</i></legend>
+                    </fieldset><br>
+                <div class="col-md-4 btn-md col-md-offset-3">
+                    <div class="well">
+                        <form action="" class="form-horizontal">
+                            <style>
+                            h3{
+                                text-align: center;
+                                color: #157B76;
+                                text-shadow: 2px 2px 1px #000;
+                                font-size: 28px;
+                            }
+                            </style>
+                            <h3>Green Hacker Institude</h3>
+
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <label for="cname" style="width: 150px; text-align: right; font-size: 13px;">Casher_Name :</label>
+                                        <input type="hidden" id="cname" name="" style="width:50px;">
+                                    </div>
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <label for="cname" style="width: 150px; text-align: right; font-size: 13px;">Casher_ID :</label>
+                                        <input type="hidden" id="cname" name="" style="width:50px;">
+                                    </div>
+                                </div>
+                            <form class="" action="/sales/salevoucher" method="post">
+
+
+                            <br><table>
+                                <tr>
+                                    <td style="padding: 5px;">
+                                        <label for="slipno" class="col-md-12"  style="width:150px; text-align:right;">Slip_No :
+                                        </label>
+                                    </td>
+
+                                    <td><!-- <input type="text" class="col-md-4" id="slipno" style="width:130px;"> --></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;">
+                                        <label for="date" class=" col-md-12"  style="width:150px; text-align: right;">Date :
+                                        </label>
+                                    </td>
+
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <table class="table table-hover table-striped table-responsive">
+
+                                        <tr>
+
+                                            <th style="padding: 5px;"><label for="name" class="col-md-1" style="width:50px; text-align: right; ">Name:</label></th>
+                                    <!-- <th colspan="2"><input type="text" class="col-md-4" id="total" style="width:200px;"></th> -->
+
+                                            <th style="padding: 5px;"><label for="qty" class="col-md-1" style="width:50px;  text-align: right; " >Qty:</label></th>
+
+                                            <th style="padding: 5px;"><label for="amount" class="col-md-1" style="width:50px;  text-align: right; " >Amount:</label></th>
+
+                                    <!-- <td> <input type="hidden" class="col-md-4" id="total" style="width:200px;"> </td> -->
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+
+                                    </table>
+                                </tr>
+                            </table>
+                            </form>
+                            <table>
+                                <tr>
+                                    <td style="padding: 5px;"><label for="total" class="col-md-12"  style="width:150px; text-align: right; ">Total :</label></td>
+                                    <td><!-- <input type="text" class="col-md-4" id="total" style="width:130px;"> --></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;">
+                                        <label for="discount" class=" col-md-12"  style="width:150px; text-align: right;">Discount :
+                                        </label>
+                                    </td>
+                                    <td><!-- <input type="text" class=" col-md-4" id="discount"style="width:130px;"> --></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;">
+                                        <label for="tax" class=" col-md-12"  style="width:150px; text-align: right; ">Tax :
+                                        </label>
+                                    </td>
+
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;">
+                                        <label for="netamount" class=" col-md-12"  style="width:150px; text-align: right; ">Net_Amount :
+                                        </label>
+                                    </td>
+
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;">
+                                        <label for="paid" class="col-md-12"  style="width:150px; text-align: right; ">Paid :
+                                        </label>
+                                    </td>
+
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;"><label for="charges" class=" col-md-12"  style="width:150px; text-align: right;">Charges :</label></td>
+                                    <td></td>
+                                </tr>
+                            </table><br>
+                               <style type="text/css">
+                                .button{
+                                    background-image: linear-gradient(to bottom right,#5b247a,#1AA7A0,#5b247a) ;
+                                    text-align: center;
+                                    text-decoration: none;
+                                    color: #fff;
+                                    border-radius: 5px;
+                                    font-size: 16px;
+                                    padding:  20px 25px 10px 25px ;
+
+                                }
+                                .button:hover{
+                                    font-size: 16px;
+                                    text-align: center;
+                                    text-decoration: none;
+                                    color: white;
+                                    box-shadow: 3px 3px 4px #000;
+                                    text-shadow: 1px 1px 1px #000;
+                                }
+                                .glyphicon .button{
+                                    font-size: 15px;
+
+                                }
+
+                            </style>
+                            <div class="col-md-12" style="text-align: right; ">
+                                <a href="/sales/saleadd" class="button">
+                                   <!--  <input type="button" value="Print" class="button"> -->
+                                    <span class="glyphicon glyphicon-print" ><br>
+                                        Print
+                                    </span>
+                                </a>
+                            </div><br><br>
+                        </form><br>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    <script rel="stylesheet" src="/js/jquery.min.js"></script>
+    <script rel="stylesheet" src="/js/bootstrap.min.js"></script>
+</body>
+</html>

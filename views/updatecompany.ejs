@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .wwww{
+        border-radius: 20px;
+      }
+      .bbbb{
+        font-size:17px;
+      }
+      .cccc{
+        height:28px;
+        border-radius: 2px;
+        margin:5px;
+      }
+
+    </style>
+  </head>
+  <body style="background-image: url('../Login_v4/images/bg-01.jpg');background-size:cover;background-repeat:no-repeat;">
+<center>
+<div class="col-md-4 col-md-offset-5" style="border-radius:10px;">
+  <div class="toggle well" style="box-shadow:3px 3px 10px black;width:400px;height:500px; margin-top:80px;">
+    <form action="/admins/companyupdate" method="POST" class="form-horizontal"  onkeypress="" style="background-color:white;height:500px;">
+      <input type="hidden" name="id" value="<%= companies._id%>">
+      <div style="padding-top:30px;">
+        <h3>Update company info !</h3>
+        <table>
+            <tr>
+                <td style="padding: 5px;"><label for="username" style="width:150px;">Company Name:</label></td>
+                <td><input type="text" class="cccc" style="width:150px;" id="username" name="name" value="<%= companies.companyName%>"></td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;"><label for="username" style="width:150px;">Company Address:</label></td>
+                <td><input type="text"class="cccc" style="width:150px;" id="username" name="address" value="<%= companies.companyAddress%>" ></td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;"><label for="stock" style="width:150px;">Phone no:</label></td>
+                <td><input type="text" class="cccc" style="width:150px;" id="stock" name="phoneno" value="<%= companies.phoneNo%>"></td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;"> <label for="Purchase" style="width:150px;">Paid Date:</label></td>
+                <td><input type="text" class="cccc" style="width:150px;" id="purchase" name="paiddate" value="<%= companies.paidDate%>"></td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;"><label for="stock" style="width:150px;">TotalCredit:</label></td>
+                <td><input type="text" class="cccc" style="width:150px;" id="stock" name="total" value="<%= companies.totalCredit%>"></td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;"><label for="Purchase" style="width:150px;">Remark:</label></td>
+                <td><input type="text" class="cccc" style="width:150px;" id="purchase" name="remark" accept="" value="<%= companies.Remark%>"></td>
+            </tr>
+
+        </table><br>
+
+        <style type="text/css">
+            .button{
+                background-color: #248718;
+                width: 70px;
+                height: 30px;
+                text-align: center;
+                text-decoration: none;
+                color: white;
+                border-radius: 5px;
+            }
+             .cancel{
+                background-color: #97190B;
+                width: 70px;
+                height: 30px;
+                text-align: center;
+                text-decoration: none;
+                color: white;
+                border-radius: 5px;
+            }
+        </style><br>
+
+            <center>
+              <input type="submit" value="Confirm" class="button">&nbsp;
+              <input type="reset" value="Cancel" class="cancel">
+            </center>
+
+            </div>
+        <br><br>
+        </form>
+      </div>
+
+  </div>
+</center>
+  </body>
+</html>

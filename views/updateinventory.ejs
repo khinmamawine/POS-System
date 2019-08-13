@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .wwww{
+        border-radius: 20px;
+      }
+      .bbbb{
+        font-size:17px;
+      }
+      .cccc{
+        height:28px;
+        border-radius: 1px;
+      }
+    </style>
+  </head>
+  <body style="background-image: url('../Login_v4/images/bg-01.jpg');background-size:cover;">
+    <center>
+      <div class="col-md-5">
+        <div class="toggle well" style="box-shadow:3px 3px 10px black;width:450px;height:auto; margin-top:80px;border-radius:2%;">
+          <form action="/admins/update" class="form-horizontal" method="post" style="background-color:white;height:auto;">
+            <input type="hidden" name="id" value="<%= showroom._id%>">
+            <center>
+            <div style="padding-top:10px;">
+              <h3>Update showroom info !</h3>
+              <table>
+                  <tr>
+                    <td style="padding: 3px;"><label for="itemid" class="bbbb col-md-6 text-right" style="width:160px;">Item_Type:</label></td>
+                    <td><input type="text" class="cccc col-md-6" id="itemid" style="width: 200px;" name="itemtype" value="<%= showroom.itemType%>"></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 3px;"><label for="barcode" class="bbbb col-md-6" style="width:160px;">Barcode:</label></td>
+                    <td><input type="number" class="cccc col-md-6" id="barcode" style="width: 200px;" name="barcode" value="<%= showroom.barCode%>"></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 3px;"><label for="itemname" class="bbbb col-md-6" style="width:160px;">Item_Name:</label></td>
+                    <td><input type="text" class="cccc col-md-6" id="itemname" style="width: 200px;" name="itemname"  value="<%= showroom.itemName%>"></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 3px;"><label for="brandname" class="bbbb col-md-6" style="width:160px;">Brand_Name:</label></td>
+                    <td><input type="text" class="cccc col-md-6" id="brandname" style="width: 200px;" name="brandname"  value="<%= showroom.brandName%>"></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 3px;"><label for="companyname" class="bbbb col-md-6" style="width:160px;">Company_Name:</label></td>
+                    <td><input type="text" class="cccc col-md-6" id="companyname" style="width: 200px;" name="companyname"  value="<%= showroom.companyName%>" ></td>
+                  </tr><br>
+                  <tr>
+                   <td style="padding: 3px;"><label for="Saleprice" class="bbbb col-md-6" style="width:160px;">Purchase_Price:</label></td>
+                   <td><input type="text" class="cccc col-md-6" id="Saleprice" style="width: 200px;" name="purchaseprice"  value="<%= showroom.purchasePrice%>"></td>
+                 </tr>
+                   <tr>
+                    <td style="padding: 3px;"><label for="Saleprice" class="bbbb col-md-6" style="width:160px;">Sale_Price:</label></td>
+                    <td><input type="text" class="cccc col-md-6" id="Saleprice" style="width: 200px;" name="saleprice"  value="<%= showroom.salePrice%>"></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 3px;"><label for="qty" class="bbbb col-md-6" style="width:160px;">Qty:</label></td>
+                    <td><input type="text" class="cccc col-md-6" id="qty" style="width: 200px;" name="qty"  value="<%= showroom.Qty%>"></td>
+                  </tr>
+                  <tr>
+                      <td style="padding: 3px;"><label for="startdate" class="bbbb col-md-6" style="width:160px; ">Start_Date:</label></td>
+                      <td><input type="date" class="cccc col-md-6" id="startdate" style="width: 200px;" name="startdate"  value="<%= showroom.startDate%>"></td>
+                  </tr>
+                  <tr>
+                      <td style="padding: 3px;"><label for="expdate" class="bbbb col-md-6" style="width:160px;">Expire_Date:</label></td>
+                      <td><input type="date" class="cccc col-md-6" id="expdate" style="width: 200px;" name="expdate"  value="<%= showroom.expDate%>"></td>
+                  </tr>
+
+                  <tr>
+                    <td style="padding: 3px;"><label for="remark" class="bbbb col-md-6" style="width:160px;">Remark:</label></td>
+                    <td><input type="text" class="cccc col-md-6" id="remark" style="width: 200px;" name="remark" value="<%= showroom.Remark%>"></td>
+                  </tr>
+                </table>
+                  <br>
+                    <style type="text/css">
+                                  .button{
+                                      background-color: #245718;
+                                      width: 70px;
+                                      height: 30px;
+                                      text-align: center;
+                                      text-decoration: none;
+                                      color: white;
+                                      border-radius: 5px;
+                                  }
+                                   .cancel{
+                                      background-color: #97190B;
+                                      width: 70px;
+                                      height: 30px;
+                                      text-align: center;
+                                      text-decoration: none;
+                                      color: white;
+                                      border-radius: 5px;
+                                  }
+                              </style>
+              <center>
+                  <input type="submit" value="Confirm" class="button">&nbsp;
+                  <input type="reset" value="Cancel" class="cancel">
+              </center>
+          <br>
+      </form>
+    </div>
+  </center>
+  </div>
+</div></center>
+</body>
+</html>
