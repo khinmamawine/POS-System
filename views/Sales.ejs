@@ -34,7 +34,7 @@
                 <form action="">
                     <table>
                          <tr>
-                            <th><h3>  &nbsp;&nbsp;&nbsp;&nbsp;Green Hacker Institute&nbsp;&nbsp;&nbsp;&nbsp;  </h3></th>
+                            <th><h3>  &nbsp;&nbsp;&nbsp;&nbsp;Wine Cosmetic Shop&nbsp;&nbsp;&nbsp;&nbsp;  </h3></th>
                             <th><h5> <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Point Of Sale System&nbsp;&nbsp;  </h5></th>
                         </tr>
                         <tr>
@@ -127,7 +127,7 @@
                 </tr>
                 <tr>
                   <td style="padding: 3px;"><label for="qty" class="col-md-6" style="width:50%; text-align: right;">Qty:</label></td>
-                  <td><input type="number" class="col-md-6" id="qty" style="width: 100%;" name="qty" onchange="fun(this.value)"></td>
+                  <td><input type="number" min="1" value="1" class="col-md-6" id="qty" style="width: 100%;" name="qty" onchange="fun(this.value)"></td>
                 </tr>
                 <tr>
                   <td style="padding: 3px;"><label for="remark" class="col-md-6" style="width:50%; text-align: right;">Amount:</label></td>
@@ -350,38 +350,47 @@
 										 <!-- <h4>Sale table</h4><hr style="color:black;border:0.5px solid #666;"> -->
 										 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-5">
 										 		<label>Brand_Name</label>
-										 		<select class="" name="" style="width:30%;height:auto;">
+										 		<select class="" name="" style="width:30%;height:auto;" id="name">
 										 			<option value=""></option>
 										 		</select>
 											</div>
 											<div class="col-lg-3 col-md-4 col-sm-5 col-xs-5"
 												<label><b>Item_Type</b></label>
-												<select class="" name="" style="width:30%;height:auto;">
+												<select class="" name="" style="width:30%;height:auto;" id="type">
 													<option value=""></option>
 												</select>
 											</div>
 											<div class="col-lg-3 col-md-4 col-sm-2 col-xs-2">
-												<input type="submit" name="" value="search" class="btn" style="color:white;">
+												<input type="submit" name="" value="search" class="btn" style="color:white;" onclick="myFunction()">
 											</div>
 										</div>
 								 </div>
-								 <div class="well" style="overflow: auto;">
+								 <div class="well" style="overflow: auto;" id="tab">
                    <form action="" class="form-horizontal">
- 										<table class="table table-striped" >
+ 										<table class="table table-striped"  id="table">
                         <tr>
 														<th>Item Name</th>
                             <th>Barcode</th>
                             <th>Sale Price</th>
                             <th>Qty</th>
                         </tr>
-                        <tr>
+												<tbody>
 
-                        </tr>
+												<!-- <% for (var i = 0; i < showroom.length; i++) {%>
+												<tr>
+												<td><%= showroom[i].itemName%></td>
+												<td><%= showroom[i].barCode %></td>
+											  <td><%= showroom[i].salePrice %></td>
+												<td><%= showroom[i].Qty %></td>
+
+												</tr>
+												<%}%> -->
+												</tbody>
 											</table>
 										</form>
 									</div>
 							 </div>
-
+            </div>
             <div class="row">
                 <div class="col-md-12">
 									<fieldset>
@@ -688,33 +697,33 @@
         $('#myInput').trigger('focus')
             })
     </script>
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			function search() {
 			}
-// const Url="/sales/saleadd";
-// var data={
-// 	showroom:Showroom
-// }
-// $('.btn').click(function(){
-// 	$.ajax({
-// 		url:Url,
-// 		type:'POST',
-// 		data:JSt=JSON.stringify(data),
-// 		contentType:"application/json; charset=utf-8",
-// 		dataType:"json",
-// 		error:function(){
-// 			alert("Error");
-// 		},
-// 		success: function(){
-// 			alert
-// 		}
-// 	})
+const Url="/sales/saleadd";
+var data={
+	showroom:Showroom
+}
+$('.btn').click(function(){
+	$.ajax({
+		url:Url,
+		type:'POST',
+		data:JSt=JSON.stringify(data),
+		contentType:"application/json; charset=utf-8",
+		dataType:"json",
+		error:function(){
+			alert("Error");
+		},
+		success: function(){
+			alert
+		}
+	})
 
-// })
+})
 
 
 
-		</script>
+		</script> -->
     <script rel="stylesheet" src="/js/jquery.min.js"></script>
     <script rel="stylesheet" src="/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
@@ -769,5 +778,34 @@
 				 showtime();
 				 setInterval(showtime,1000);
 		</script>
+		<script type="text/javascript">
+			$('#tab').hide();
+			function myFunction(clickid) {
+				$('#tab').show();
+				var brand={brandname:$('#brandname').val()};
+				var type={itemtype:$('#itemtype').val()};
+				$.ajax({
+					url:'/sales/saleadd',
+					type:'POST',
+					data:{},
+					success:function (result) {
+						if (result.data) {
+							var a=0;
+							var data=result.showroom[0];
+							for (var i = 0; i < data.showroom.length; i++) {
+									var search="<tr><td>"+data.
+							}
+
+						}
+
+					}
+				})
+			}
+		</script>
+		<!-- <script type="text/javascript">
+		document.querySelector('.btn').addEventListener('click',function(){
+			document.querySelector('.toggle').classList.toggle('hidden');
+		});
+		</script> -->
 </body>
 </html>

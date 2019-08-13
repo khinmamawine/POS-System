@@ -40,4 +40,10 @@ router.post('/checkbar',(req,res)=>{
 })
 });
 
+router.post('/search',(req,res)=>{
+  Showroom.find({brandName:req.body.brandname,itemType:req.body.itemtype},(err,rtn)=>{
+    if(err) throw err;
+    res.json({data:rtn});
+})
+});
 module.exports = router;
