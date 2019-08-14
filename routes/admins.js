@@ -7,6 +7,8 @@ var Company=require('../model/Company');
 var Warehouse=require('../model/Warehouse');
 var Staffmanagement=require('../model/Staffmanagement');
 var Expanses=require('../model/Expanses');
+var Brand=require('../model/Brand');
+var Category=require('../model/Category')
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -98,13 +100,7 @@ router.post('/inventoryadd',function(req,res){
             });
             });
 
-          //   router.get('/list',function(req,res){
-          //     Showroom.find({},function(err,rtn){
-          //         if(err) throw err;
-          //         console.log(rtn);
-          //   res.render('saledetail',{showroom:rtn});
-          //   });
-          // });
+
 
 router.post('/companyadd',function(req,res){
   var companies =new Company();
@@ -504,6 +500,125 @@ router.post('/warehouseadd',function(req,res){
     router.get('/sale',(req,res)=>{
       res.render('sale');
     });
+
+    router.post('/brandadd',function(req,res){
+      var brand =new Brand();
+        brand.name=req.body.name;
+        brand.imgUrl=req.body.image;
+        brand.save(function(err,rtn){
+          if(err) throw err;
+          res.redirect('/admins/brandlist');
+        });
+        });
+
+        router.get('/brandadd',function(req,res){
+        Brand.find(function(err,rtn){
+            if(err) throw err;
+            console.log(rtn);
+          res.render('brandadd',{brand:rtn});
+        });
+        });
+
+    router.get('/brandlist',function(req,res){
+    Brand.find(function(err,rtn){
+        if(err) throw err;
+        console.log(rtn);
+      res.render('brandadd',{brand:rtn});
+    });
+    });
+
+
+
+    router.post('/brandNameupdate', function(req,res){
+          console.log('call');
+          var update={
+        name:req.body.name,
+        imgUrl:req.body.image,
+         }
+          Brand.findByIdAndUpdate(req.body.id,{$set: update},function(err,rtn){
+            if(err) throw err;
+          console.log(rtn);
+          res.redirect('/admins/brandlist');
+          });
+        });
+
+
+        router.get('/brandupdate/:id',function(req,res){
+          console.log('calls ');
+          Brand.findById(req.params.id,function(err,rtn){
+            if(err) throw err;
+            console.log(rtn);
+              res.render('brandupdate',{brand:rtn});
+        });
+        });
+
+    router.get('/branddelete/:id',function(req,res){
+    Brand.findByIdAndRemove(req.params.id,function (err,rtn) {
+      if (err) throw err;
+      console.log(rtn);
+      res.redirect('/admins/brandlist');
+    });
+    });
+
+
+    router.post('/categoryadd',function(req,res){
+      var category=new Category();
+        category.name=req.body.name;
+        category.save(function(err,rtn){
+          if(err) throw err;
+          res.redirect('/admins/categorylist');
+        });
+        });
+
+        router.get('/categoryadd',function(req,res){
+        Category.find(function(err,rtn){
+            if(err) throw err;
+            console.log(rtn);
+          res.render('categoryadd',{category:rtn});
+        });
+        });
+
+    router.get('/categorylist',function(req,res){
+    Category.find(function(err,rtn){
+        if(err) throw err;
+        console.log(rtn);
+      res.render('categoryadd',{category:rtn});
+    });
+    });
+
+
+
+    router.post('/categoryupdate', function(req,res){
+          console.log('call');
+          var update={
+        name:req.body.name,
+
+         }
+          Category.findByIdAndUpdate(req.body.id,{$set: update},function(err,rtn){
+            if(err) throw err;
+          console.log(rtn);
+          res.redirect('/admins/categorylist');
+          });
+        });
+
+
+        router.get('/categoryupdate/:id',function(req,res){
+          console.log('calls ');
+          Category.findById(req.params.id,function(err,rtn){
+            if(err) throw err;
+            console.log(rtn);
+              res.render('categoryupdate',{category:rtn});
+        });
+        });
+
+    router.get('/categorydelete/:id',function(req,res){
+    Category.findByIdAndRemove(req.params.id,function (err,rtn) {
+      if (err) throw err;
+      console.log(rtn);
+      res.redirect('/admins/categorylist');
+    });
+    });
+
 
 
 
