@@ -46,7 +46,6 @@
                     </form>
                     </nav>
                 </div>
-<!-- -----------------------------------pager------------------------- -->
                 <div class="row">
                     <div class="col-md-12">
                         <ol class="pager">
@@ -55,7 +54,7 @@
                         </ol>
                     </div>
                 </div>
-<!-- ----------------------------------form---------------------------------- -->
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="col-md-6">
@@ -76,7 +75,6 @@
                                                     <th>Remark</th>
                                                 </tr>
                                                 <tbody>
-
                                                 <% for (var i = 0; i < showroom.length; i++) {%>
                                                 <tr>
                                                 <td><%= showroom[i].itemType %></td>
@@ -98,35 +96,87 @@
                                     </div>
                             </fieldset>
                         </div>
-<!--
                         <div class="col-md-6">
                             <fieldset>
-                            <legend><h3><i>SkinCare Table</i></h3></legend>
+                            <legend><h3><i>Brand Table</i></h3></legend>
                             </fieldset>
                             <div class="well" style="overflow: auto;">
                                 <form action="" class="form-horizontal">
                                     <table class="table table-bordered">
+                                      <tr>
+                                        <th>Name</th>
+                                        <th>image</th>
+                                      </tr>
+                                      <tbody>
+                                      <% for (var i = 0; i < brand.length; i++) {%>
                                         <tr>
-                                            <th>Item_ID</th>
-                                            <th>Barcode</th>
-                                            <th>Item_Name</th>
-                                            <th>Brand_Name</th>
-                                            <th>Company_Name</th>
-                                            <th>Sale_Price</th>
-                                            <th>Qty</th>
-                                            <th>Remark</th>
+                                        <td><%= brand[i].name %></td>
+                                        <td> <img src="<%= brand[i].imgUrl %>" alt="" width="100px" height="70px"> </td>
                                         </tr>
-                                        <tr>
+                                      <%}%>
+                                      </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <fieldset>
+                            <legend><h3><i>Category Table</i></h3></legend>
+                            </fieldset>
+                            <div class="well" style="overflow: auto; max-height: 300px;">
+                                <form action="" class="form-horizontal">
+                                    <table class="table table-bordered">
+                                      <tr>
+                                        <th>Name</th>
+                                      </tr>
+                                      <tbody>
+                                      <% for (var i = 0; i < category.length; i++) {%>
+                                      <tr>
+                                      <td><%= category[i].name %></td>
+                                      </tr>
+                                      <%}%>
+                                      </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                            <legend><h3><i>Staff Management Table</i></h3></legend>
+                            </fieldset>
+                            <div class="well"style="overflow: auto; max-height: 300px;">
+                                <form action="" class="form-horizontal">
+                                    <table class="table table-bordered">
+                                         <tr>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Address</th>
+                                                <th>StartDate</th>
+                                                <th>Email</th>
+                                                <th>NRCno</th>
+                                                <th>Password</th>
+                                                <th>Gender</th>
+                                            </tr>
+                                            <tbody>
 
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>null</td>
-                                        </tr>
+                                      <% for (var i = 0; i < management.length; i++) {%>
+                                        <tr>
+                                    <td><%= management[i].Name %></td>
+                                    <td><%= management[i].Age%></td>
+                                    <td><%= management[i].Address %></td>
+                                    <td><%= management[i].startDate %></td>
+                                    <td><%= management[i].Email %></td>
+                                    <td><%= management[i].NRCno %></td>
+                                    <td><%= management[i].Password %></td>
+                                    <td><%= management[i].Gender %></td>
+                                    </tr>
+                                    <%}%>
+
+                              </tbody>
 
                                     </table>
                                 </form>
@@ -134,54 +184,122 @@
                         </div>
                     </div>
                 </div>
-
+            </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="col-md-6">
                             <fieldset>
-                            <legend><h3><i>Company Table</i></h3></legend>
+                            <legend><h3><i>Expense table Detail</i></h3></legend>
                             </fieldset>
-                            <div class="well" style="overflow: auto; max-height: 300px;">
+                                <div class="well" style="overflow: auto; max-height: 300px;">
+                                    <form action="" class="form-horizontal">
+                                        <table class="table table-bordered"  >
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Description</th>
+                                                    <th>Amount</th>
+                                                    <th>Remark</th>
+                                                </tr>
+                                                <tbody>
+                                          <% for (var i = 0; i < expanses.length; i++) {%>
+                                            <tr>
+                                        <td><%= expanses[i].startDate %></td>
+                                        <td><%= expanses[i].Description %></td>
+                                        <td><%= expanses[i].Amount%></td>
+                                        <td><%= expanses[i].Remark %></td>
+                                        </tr>
+                                        <%}%>
+                                  </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                            <legend><h3><i>Purchase Searching Details</i></h3></legend>
+                            </fieldset>
+                            <div class="well"style="overflow: auto; max-height: 300px;">
                                 <form action="" class="form-horizontal">
-
                                     <table class="table table-bordered">
                                         <tr>
-                                            <th>Company_Name</th>
-                                            <th>Company_Address</th>
-                                            <th>Phone_No</th>
-                                            <th>Last_PaidDate</th>
-                                            <th>Total_Credit</th>
-                                            <th>Remark</th>
+                                            <th>Barcode</th>
+                                            <th>Item_Name</th>
+                                            <th>Stock</th>
+                                            <th>Purchase_Price</th>
+                                            <th>Sale Price</th>
+                                            <th>Amount</th>
+                                            <th>Disscount</th>
                                         </tr>
+                                    </table>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <fieldset>
+                            <legend><h3><i>Sale Voucher</i></h3></legend>
+                            </fieldset>
+                            <div class="well"style="overflow: auto; max-height: 300px;">
+                                <form action="" class="form-horizontal">
+                                    <table class="table table-bordered">
                                         <tr>
-                                            <td>YGNCompany</td>
-                                            <td>yangon</td>
-                                            <td>09-124</td>
-                                            <td>1/2/2019</td>
-                                            <td>15,000</td>
-                                            <td>null</td>
-                                        </tr>
-                                        <tr>
-                                            <td>MDYCompany</td>
-                                            <td>mandalay</td>
-                                            <td>09-125</td>
-                                            <td>25,000</td>
-                                            <td>23/5/2018</td>
-                                            <td>null</td>
-                                        </tr>
-                                        <tr>
-                                            <td>PAYACompany</td>
-                                            <td>paya</td>
-                                            <td>09-126</td>
-                                            <td>30,000</td>
-                                            <td>22/5/2018</td>
-                                            <td>null</td>
+                                            <th>Casher_Name</th>
+                                            <th>Sale_Date</th>
+                                            <th>Customer_Name</th>
+                                            <th>Customer_Address</th>
+                                            <th>Sale_Total</th>
+                                            <th>Tax</th>
+                                            <th>Service</th>
+                                            <th>Sub_Total</th>
                                         </tr>
                                     </table>
                                 </form>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                            <legend><h3><i>Sale Voucher Details</i></h3></legend>
+                            </fieldset>
+                            <div class="well"style="overflow: auto; max-height: 300px;">
+                                <form action="" class="form-horizontal">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>Barcode</th>
+                                            <th>Item_Name</th>
+                                            <th>Stock</th>
+                                            <th>Sale_Price</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <fieldset>
+                            <legend><h3><i>Profit/Loss Details Table</i></h3></legend>
+                            </fieldset>
+                            <div class="well"style="overflow: auto; max-height: 300px;">
+                                <form action="/summaries" method="POST" class="form-horizontal">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>Barcode</th>
+                                            <th>item_Name</th>
+                                            <th>item_Type</th>
+                                            <th>Purchase_Price</th>
+                                            <th>Sale_Price</th>
+                                            <th>Qty</th>
+                                            <th>Profit/Loss</th>
+                                        </tr>
 
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <fieldset>
                             <legend><h3><i>Stock Ledger Table</i></h3></legend>
@@ -231,173 +349,8 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-6">
-                            <fieldset>
-                            <legend><h3><i>Expense table Detail</i></h3></legend>
-                            </fieldset>
-                                <div class="well" style="overflow: auto; max-height: 300px;">
-                                    <form action="" class="form-horizontal">
-                                        <table class="table table-bordered"  >
-                                                <tr>
-                                                    <th>Date</th>
-                                                    <th>Description</th>
-                                                    <th>Amount</th>
-                                                    <th>Remark</th>
-                                                </tr>
-                                                <tbody>
-                                          <% for (var i = 0; i < expanses.length; i++) {%>
-                                            <tr>
-                                        <td><%= expanses[i].startDate %></td>
-                                        <td><%= expanses[i].Description %></td>
-                                        <td><%= expanses[i].Amount%></td>
-                                        <td><%= expanses[i].Remark %></td>
-                                        </tr>
-                                        <%}%>
-                                  </tbody>
-                                        </table>
-                                    </form>
-                                </div>
-                            </div>
-
-                        <div class="col-md-6">
-                            <fieldset>
-                            <legend><h3><i>Purchase Searching Details</i></h3></legend>
-                            </fieldset>
-                            <div class="well"style="overflow: auto; max-height: 300px;">
-                                <form action="" class="form-horizontal">
-                                    <table class="table table-bordered">
-                                        <tr>
-
-                                            <th>Barcode</th>
-                                            <th>Item_Name</th>
-                                            <th>Stock</th>
-                                            <th>Purchase_Price</th>
-                                            <th>Sale Price</th>
-                                            <th>Amount</th>
-                                            <th>Disscount</th>
-                                        </tr>
-
-                                    </table>
-                                </form>
-                            </div>
-                    </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-6">
-                            <fieldset>
-                            <legend><h3><i>Sale Voucher</i></h3></legend>
-                            </fieldset>
-                            <div class="well"style="overflow: auto; max-height: 300px;">
-                                <form action="" class="form-horizontal">
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <th>Casher_Name</th>
-                                            <th>Sale_Date</th>
-                                            <th>Customer_Name</th>
-                                            <th>Customer_Address</th>
-                                            <th>Sale_Total</th>
-                                            <th>Tax</th>
-                                            <th>Service</th>
-                                            <th>Sub_Total</th>
-
-                                        </tr>
-
-                                    </table>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <fieldset>
-                            <legend><h3><i>Sale Voucher Details</i></h3></legend>
-                            </fieldset>
-                            <div class="well"style="overflow: auto; max-height: 300px;">
-                                <form action="" class="form-horizontal">
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <th>Barcode</th>
-                                            <th>Item_Name</th>
-                                            <th>Stock</th>
-                                            <th>Sale_Price</th>
-                                            <th>Amount</th>
-
-
-                                        </tr>
-
-                                    </table>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-6">
-                            <fieldset>
-                            <legend><h3><i>Profit/Loss Details Table</i></h3></legend>
-                            </fieldset>
-                            <div class="well"style="overflow: auto; max-height: 300px;">
-                                <form action="/summaries" method="POST" class="form-horizontal">
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <th>Barcode</th>
-                                            <th>item_Name</th>
-                                            <th>item_Type</th>
-                                            <th>Purchase_Price</th>
-                                            <th>Sale_Price</th>
-                                            <th>Qty</th>
-                                            <th>Profit/Loss</th>
-                                        </tr>
-
-                                    </table>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <fieldset>
-                            <legend><h3><i>Staff Management Table</i></h3></legend>
-                            </fieldset>
-                            <div class="well"style="overflow: auto; max-height: 300px;">
-                                <form action="" class="form-horizontal">
-                                    <table class="table table-bordered">
-                                         <tr>
-                                                <th>Name</th>
-                                                <th>Age</th>
-                                                <th>Address</th>
-                                                <th>StartDate</th>
-                                                <th>Email</th>
-                                                <th>NRCno</th>
-                                                <th>Password</th>
-                                                <th>Gender</th>
-                                            </tr>
-                                            <tbody>
-
-                                      <% for (var i = 0; i < management.length; i++) {%>
-                                        <tr>
-                                    <td><%= management[i].Name %></td>
-                                    <td><%= management[i].Age%></td>
-                                    <td><%= management[i].Address %></td>
-                                    <td><%= management[i].startDate %></td>
-                                    <td><%= management[i].Email %></td>
-                                    <td><%= management[i].NRCno %></td>
-                                    <td><%= management[i].Password %></td>
-                                    <td><%= management[i].Gender %></td>
-                                    </tr>
-                                    <%}%>
-
-                              </tbody>
-
-                                    </table>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
     <script rel="stylesheet" src="/js/jquery.min.js"></script>
     <script rel="stylesheet" src="/js/bootstrap.min.js"></script>
 </body>

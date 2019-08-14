@@ -50,21 +50,7 @@ router.post('/inventoryadd',function(req,res){
         });
       });
 
-    //   router.get('/sale-detail/:id',function(req,res,next){
-    //   Showroom.findById(req.params.id,function(err,rtn){
-    //       if(err) throw err;
-    //       console.log(rtn);
-    //         res.render('saledetail',{showroom:rtn});
-    //   });
-    // });
 
-      // router.get('/inventoryadd',function(req,res){
-      //   Showroom.find(function(err,rtn){
-      //       if(err) throw err;
-      //       console.log(rtn);
-      //       res.render('inventorypage',{showroom:rtn});
-      //     });
-      //   });
 
       router.post('/update', function(req,res){
               console.log('call');
@@ -488,17 +474,23 @@ router.post('/warehouseadd',function(req,res){
       Staffmanagement.find({},function(err,rtn){
         Showroom.find({},function(err2,rtn2){
           Expanses.find({},function(err3,rtn3){
-            if(err3)throw err3;
-          if(err2) throw err2;
-        if(err) throw err;
-        console.log(rtn);
-       console.log(rtn2);
-       console.log(rtn3);
-      res.render('Summaries',{management:rtn,showroom:rtn2,expanses:rtn3});
+            Brand.find({},function(err4,rtn4){
+              Category.find({},function(err5,rtn5){
+                if(err5) throw err5;
+                  if(err4) throw err4;
+                    if(err3)throw err3;
+                      if(err2) throw err2;
+                        if(err) throw err;
+                    console.log(rtn);
+                    console.log(rtn2);
+                    console.log(rtn3);
+      res.render('Summaries',{management:rtn,showroom:rtn2,expanses:rtn3,brand:rtn4,category:rtn5});
     });
   });
 });
 });
+});
+  })
     router.get('/salehistory',(req,res)=>{
       res.render('SaleHistory');
     });

@@ -41,7 +41,7 @@ app.use(function(req, res, next){
   if(req.session.users){
     next();
   }else {
-    res.redirect('/login');// redirect to other page
+    res.redirect('/');// redirect to other page
   }
 });
 app.use('/sales', usersRouter);
