@@ -8,7 +8,9 @@ var Warehouse=require('../model/Warehouse');
 var Staffmanagement=require('../model/Staffmanagement');
 var Expanses=require('../model/Expanses');
 var Brand=require('../model/Brand');
-var Category=require('../model/Category')
+var Category=require('../model/Category');
+var multer = require('multer');
+var upload = multer({ dest:'public/images/uploads'});
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -21,7 +23,7 @@ router.post('/inventoryadd',function(req,res){
     showroom.itemType=req.body.itemtype;
     showroom.barCode=req.body.barcode;
     showroom.itemName=req.body.itemname;
-    showroom.brandName=req.body.brandname;
+    showroom.brand_id=req.body.brand_id;
     showroom.companyName=req.body.companyname;
      showroom.purchasePrice=req.body.purchaseprice;
     showroom.salePrice=req.body.saleprice;
@@ -35,11 +37,17 @@ router.post('/inventoryadd',function(req,res){
     });
     });
     router.get('/inventorylist',function(req,res){
-      Showroom.find(function(err,rtn){
+      Showroom.find({}).populate('brand_id').exec(function(err,rtn){
           if(err) throw err;
-          console.log(rtn);
-      res.render('inventorypage',{showroom:rtn});
-      });
+          Brand.find(function (err2,rtn2) {
+            if(err2) throw err2;
+            Category.find(function (err3,rtn3) {
+              if(err3) throw err3
+              res.render('inventorypage',{showroom:rtn,brand:rtn2,category:rtn3});
+            })
+          })
+
+        });
       });
 
     //   router.get('/sale-detail/:id',function(req,res,next){
@@ -50,15 +58,15 @@ router.post('/inventoryadd',function(req,res){
     //   });
     // });
 
-      router.get('/inventoryadd',function(req,res){
-        Showroom.find(function(err,rtn){
-            if(err) throw err;
-            console.log(rtn);
-        res.render('inventorypage',{showroom:rtn});
-        });
-        });
+      // router.get('/inventoryadd',function(req,res){
+      //   Showroom.find(function(err,rtn){
+      //       if(err) throw err;
+      //       console.log(rtn);
+      //       res.render('inventorypage',{showroom:rtn});
+      //     });
+      //   });
 
-        router.post('/update', function(req,res){
+      router.post('/update', function(req,res){
               console.log('call');
               var update={
                 itemType:req.body.itemtype,
@@ -495,24 +503,22 @@ router.post('/warehouseadd',function(req,res){
       res.render('SaleHistory');
     });
 
-
-
     router.get('/sale',(req,res)=>{
       res.render('sale');
     });
 
-    router.post('/brandadd',function(req,res){
+    router.post('/brandadd',upload.single('image'),function(req,res){
       var brand =new Brand();
         brand.name=req.body.name;
-        brand.imgUrl=req.body.image;
+        if(req.file) brand.imgUrl = '/images/uploads/'+ req.file.filename;
         brand.save(function(err,rtn){
           if(err) throw err;
           res.redirect('/admins/brandlist');
         });
         });
 
-        router.get('/brandadd',function(req,res){
-        Brand.find(function(err,rtn){
+    router.get('/brandadd',function(req,res){
+          Brand.find(function(err,rtn){
             if(err) throw err;
             console.log(rtn);
           res.render('brandadd',{brand:rtn});
@@ -520,7 +526,7 @@ router.post('/warehouseadd',function(req,res){
         });
 
     router.get('/brandlist',function(req,res){
-    Brand.find(function(err,rtn){
+      Brand.find(function(err,rtn){
         if(err) throw err;
         console.log(rtn);
       res.render('brandadd',{brand:rtn});
@@ -529,11 +535,10 @@ router.post('/warehouseadd',function(req,res){
 
 
 
-    router.post('/brandNameupdate', function(req,res){
+    router.post('/brandupdate', function(req,res){
           console.log('call');
           var update={
-        name:req.body.name,
-        imgUrl:req.body.image,
+            name:req.body.name,
          }
           Brand.findByIdAndUpdate(req.body.id,{$set: update},function(err,rtn){
             if(err) throw err;

@@ -5,18 +5,17 @@ var Schema = mongoose.Schema;
     type: String,
     required:true,
       },
-barCode:{
+    barCode:{
      type: String,
      required:true,
-   },
+    },
    itemName:{
      type: String,
      required:true,
-
    },
-  brandName:{
-     type: String,
-     required:true,
+  brand_id:{
+    type:Schema.Types.ObjectId,
+    ref:'Brand',
    },
    companyName:{
      type: String,

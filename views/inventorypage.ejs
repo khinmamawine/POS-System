@@ -156,18 +156,14 @@
 								<tr>
 									<td style="padding: 3px;"><label for="itemid" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Item_Type:</label></td>
 
-									<td>	<select name="itemtype" id="itemid" onkeypress="" style="width: 70%;height:25px;">
-												<option value="skincare">SkinCare</option>
-												<option value="bodycare">BodyCare</option>
-												<option value="haircare">HairCare</option>
-												<option value="perfume">Perfume</option>
-												<option value="hairstylingproduct">HairStyling Product</option>
-												<option value="cologen">Cologen</option>
-												<option value="makeup">Make_Up</option>
-												<option value="chemicalompount">Chemical_Compount</option>
-												<option value="cosmetictool">Cosmetic_Tool</option>
+									<td>
+										<select name="itemtype" id="itemid" onkeypress="" style="width: 70%;height:25px;">
+											<% for(var i = 0; i < category.length; i++){%>
+													<option value="<%= category[i].name %>"><%= category[i].name %></option>
+											<%}%>
 
-										</select></td>
+										</select>
+									</td>
 								</tr>
 								<tr>
 									<td style="padding: 3px;"><label for="barcode" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Barcode:</label></td>
@@ -179,7 +175,13 @@
 								</tr>
 								<tr>
 									<td style="padding: 3px;"><label for="brandname" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Brand_Name:</label></td>
-									<td><input type="text" class="col-md-6 col-sm-6" id="brandname" style="width: 70%;" name="brandname"></td>
+									<td>
+										<select name="brand_id" id="brandname" onkeypress="" style="width: 70%;height:25px;">
+											<% for(var j = 0; j < brand.length; j++){%>
+													<option value="<%= brand[j]._id %>"><%= brand[j].name %></option>
+											<%}%>
+										</select>
+									</td>
 								</tr>
 								<tr>
 									<td style="padding: 3px;"><label for="companyname" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Company_Name:</label></td>
@@ -291,9 +293,9 @@
 						<td><%= showroom[i].itemType %></td>
 						<td><%= showroom[i].barCode %></td>
 						<td><%= showroom[i].itemName%></td>
-						<td><%= showroom[i].brandName %></td>
+						<td><%= showroom[i].brand_id.name %></td>
 						<td><%= showroom[i].companyName %></td>
-							<td><%= showroom[i].purchasePrice %></td>
+						<td><%= showroom[i].purchasePrice %></td>
 						<td><%= showroom[i].salePrice %></td>
 						<td><%= showroom[i].startDate %></td>
 						<td><%= showroom[i].expDate %></td>

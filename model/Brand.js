@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
  var BrandSchema = new Schema({
-   name:{
+  name:{
      type: String,
      required:true,
    },
   imgUrl:{
-  type:String,
-  required:true,
+    type:String,
+    required:true,
    },
 
  })

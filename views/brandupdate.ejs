@@ -25,15 +25,14 @@
     <form action="/admins/brandupdate" method="POST" class="form-horizontal"  onkeypress="" style="background-color:white;height:500px;">
       <input type="hidden" name="id" value="<%=brand._id%>">
       <div style="padding-top:30px;">
-        <h3>Update expanses info !</h3>
+        <h3>Update Brand info !</h3>
         <table>
         <tr>
-            <td style="padding: 3px;"><label for="brandname" style="width: 200px; text-align: right;margin-right: 30px;">Brand Name:</label></td>
-            <td><input type="text" style="width: 200px; margin-right: 30px; font-size: 14px;" id="dates" name="dates" value="<%=brand.name%>"></td>
+            <td style="padding: 3px;"><label for="name" style="width: 200px; text-align: right;margin-right: 30px;">Brand Name:</label></td>
+            <td><input type="text" style="width: 200px; margin-right: 30px; font-size: 14px;" id="name" name="name" value="<%=brand.name%>"></td>
         </tr>
         <tr>
-            <td style="padding: 3px;"><label for="image" style="width: 200px; text-align: right;">Image:</label></td>
-            <td><input type="text"  style="width: 200px; margin-right: 30px;font-size: 14px;" id="description" name="image" value="<%=brand.image%>"></td>
+            <img src="<%= brand.imgUrl%>" alt="">
         </tr>
 
     </table><br>

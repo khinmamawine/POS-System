@@ -138,7 +138,7 @@
 						</div>
 
 					<div class="toggle well hidden">
-            <form action="/admins/brandadd" class="form-horizontal" method="post">
+            <form action="/admins/brandadd" class="form-horizontal" method="post" enctype="multipart/form-data">
 							<center>
 								<table>
 
@@ -148,7 +148,7 @@
 								</tr>
 								<tr>
 									<td style="padding: 3px;"><label for="image" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Image:</label></td>
-									<td><input type="text" class="col-md-6 col-sm-6" id="image" style="width: 70%;" name="image"></td>
+									<td><input type="file" class="col-md-6 col-sm-6" id="image" style="width: 70%;" name="image"></td>
 								</tr>
 
 							</table></center>
@@ -213,12 +213,12 @@
 						<tbody>
 
 						<% for (var i = 0; i < brand.length; i++) {%>
-						<tr>
-						<td><%= brand[i].name %></td>
-						<td><%= brand[i].imgUrl %></td>
-						<td><a href="/admins/brandupdate/<%=brand[i]._id %>"><input type="submit" value="update"></a></td>
-						<td><center><input type="button" name="btn" value="Delete" onclick="del('<%= brand[i]._id%>')"></a></center></td>
-						</tr>
+							<tr>
+							<td><%= brand[i].name %></td>
+							<td> <img src="<%= brand[i].imgUrl %>" alt="" width="100px" height="70px"> </td>
+							<td><a href="/admins/brandupdate/<%=brand[i]._id %>"><input type="submit" value="update"></a></td>
+							<td><center><input type="button" name="btn" value="Delete" onclick="del('<%= brand[i]._id%>')"></a></center></td>
+							</tr>
 						<%}%>
 						</tbody>
 					</table>
@@ -243,7 +243,6 @@
                                 }
                             </style>
                             <div class="col-md-7" style="text-align: right;">
-<button type="button" id="abcd" name="button">Click</button>
 			                </div>
                     </div>
                 </fieldset>

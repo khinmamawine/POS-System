@@ -159,190 +159,7 @@
             </form>
           </div>
       </div>
-       <!-- <div class="col-md-8 ">
-         <div class="well" style="overflow:auto; max-height: 400px; " >
 
-                      <div class="row" >
-
-                          <nav class="nav navbar-default" >
-
-                              <button class="navbar-toggle" data-toggle="collapse" data-target="#one">
-                                  <span class="icon-bar"></span>
-                                  <span class="icon-bar"></span>
-                                  <span class="icon-bar"></span>
-                              </button>
-                              <div class="navbar-collapse collapse" id="one">
-                                  <ul class="nav navbar-nav">
-                                      <li class="#"><a href="#div1">SkinCare</a></li>
-                                      <li class="#"><a href="#div2">BodyCare</a></li>
-                                      <li class="#"><a href="#div3">HairCare</a></li>
-                                       <li class="#"><a href="#div4">HairStyling Product</a></li>
-                                      <li class="#"><a href="#div5">Perfume</a></li>
-                                      <li class="#"><a href="#div6">Cologen</a></li>
-                                      <li class="#"><a href="#div7">Make_Up</a></li>
-                                    <li class="#"><a href="#div8">Chemical_Compount</a></li>
-                                    <li class="#"><a href="#div9">Cosmetic_Tool</a></li>
-
-                                          </ul>
-                                      </li>
-                                  </ul>
-
-                                  <form action="" class="navbar-form navbar-right">
-                                      <div class="form-group">
-                                          <input type="text" class="form-control" name="">
-                                              <input type="button" class="form-control" value="search" onclick="search()">
-                                      </div>
-                                  </form>
-                                 <!--  <div class="nav navbar-nav navbar-right">
-                                     <li><a href="#">Login</a></li>
-                                     <li><a href="#">Register</a></li>
-                                 </div> -->
-                              <!-- </div>
-
-                          </nav>
-                      </div><br>
-
-
-        <style type="text/css">
-            .aa{
-                width: 800px;
-                height: 300px;
-            }
-        </style>
-    <div class="container img-responsive">
-      <div class="row">
-        <div id="div1" class="divClass">
-					<h3>SkinCare</h3>
-					<div class="col-md-2">
-						<% for (var i = 0; i < showroom.length; i++) {%>
-						<%	if(showroom[i].itemType!='skincare') continue;%>
-
-
-							<a href="/sales/detail/<%=showroom[i]._id%>"><%= showroom[i].itemName %></a>
-
-							<%}%>
-	              </div>
-	              </div>
-					</div>
-
-
-
-                <div class="row">
-                  <div id="div2" class="divClass">
-                    <h3>BodyCare</h3>
-                    <div class="col-md-2">
-											<% for (var i = 0; i < showroom.length; i++) {%>
-											<%	if(showroom[i].itemType!='bodycare') continue;%>
-
-
-<a href="/sales/detail/<%=showroom[i]._id%>"><%= showroom[i].itemName %></a>
-
-												<%}%>
-                        </div>
-                </div><br><br>
-                </div>
-
-                    <div class="row">
-                        <div id="div3" class="divClass">
-                            <h3>HairCare</h3>
-                            <div class="col-md-2">
-															<% for (var i = 0; i < showroom.length; i++) {%>
-															<%	if(showroom[i].itemType!='haircare') continue;%>
-
-
-															<a href="/sales/detail/<%=showroom[i]._id%>"><%= showroom[i].itemName %></a>
-
-																<%}%>
-				                        </div>
-                </div>
-                    </div>
-
-                    <div class="row">
-                        <div id="div4" class="divClass">
-                            <h3>HairStyling_Product</h3>
-                            <div class="col-md-2">
-															<% for (var i = 0; i < showroom.length; i++) {%>
-															<%	if(showroom[i].itemType!='perfume') continue;%>
-
-
-																<a href="/sales/detail/<%=showroom[i]._id%>"><%= showroom[i].itemName %></a>
-
-																<%}%>
-																</div>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div id="div5" class="divClass">
-                            <h3>Perfume</h3>
-                            <div class="col-md-2">
-															<% for (var i = 0; i < showroom.length; i++) {%>
-															<%	if(showroom[i].itemType!='hairstylingproduct') continue;%>
-
-
-														<a href="/sales/detail/<%=showroom[i]._id%>"><%= showroom[i].itemName %></a>
-
-																<%}%>
-				                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                        <div id="div6" class="divClass">
-                            <h3>Cologen</h3>
-                            <div class="col-md-2">
-															<% for (var i = 0; i < showroom.length; i++) {%>
-															<%	if(showroom[i].itemType!='cologen') continue;%>
-																<a href="/sales/detail/<%=showroom[i]._id%>"><%= showroom[i].itemName %></a>
-																<%}%>
-				                        </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="div7" class="divClass">
-                            <h3>Make_Up</h3>
-                                  <div class="col-md-2">
-																		<% for (var i = 0; i < showroom.length; i++) {%>
-																		<%	if(showroom[i].itemType!='makeup') continue;%>
-																				<a href="/sales/detail/<%=showroom[i]._id%>"><%= showroom[i].itemName %></a>
-																			<%}%>
-							                        </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="div8" class="divClass">
-                            <h3>Chemical_Compount</h3>
-                            <div class="col-md-2">
-															<% for (var i = 0; i < showroom.length; i++) {%>
-															<%	if(showroom[i].itemType!='chemicalompount') continue;%>
-																	<a href="/sales/detail/<%=showroom[i]._id%>"><%= showroom[i].itemName %></a>
-																<%}%>
-																</div>
-                          </div>
-                      </div>
-
-                    <div class="row">
-                        <div id="div9" class="divClass">
-                            <h3>Cosmetic_Tools</h3>
-                            <div class="col-md-2">
-															<% for (var i = 0; i < showroom.length; i++) {%>
-															<%	if(showroom[i].itemType!='cosmetictool') continue;%>
-
-
-																	<a href="/sales/detail/<%=showroom[i]._id%>"><%= showroom[i].itemName %></a>
-
-																<%}%>
-																</div>
-                           </div>
-
-                    </div>
-
-
-
-        </div>
-      </div>
-    </div> -->
 
 						<div class="col-md-8 ">
 							<div class="well" style="overflow:auto; max-height: 400px; " >
@@ -350,14 +167,18 @@
 										 <!-- <h4>Sale table</h4><hr style="color:black;border:0.5px solid #666;"> -->
 										 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-5">
 										 		<label>Brand_Name</label>
-										 		<select class="" name="" style="width:30%;height:auto;" id="name">
-										 			<option value=""></option>
+										 		<select class="" name="bname" style="width:30%;height:auto;" id="bname">
+													<% for(var i =0; i< brand.length; i++){%>
+										 				<option value="<%= brand[i]._id %>"><%= brand[i].name %></option>
+												 <%}%>
 										 		</select>
 											</div>
 											<div class="col-lg-3 col-md-4 col-sm-5 col-xs-5"
 												<label><b>Item_Type</b></label>
-												<select class="" name="" style="width:30%;height:auto;" id="type">
-													<option value=""></option>
+												<select class="" name="ctype" style="width:30%;height:auto;" id="ctype">
+													<% for(var j =0; j< category.length; j++){%>
+										 				<option value="<%= category[j].name %>"><%= category[j].name %></option>
+												 <%}%>
 												</select>
 											</div>
 											<div class="col-lg-3 col-md-4 col-sm-2 col-xs-2">
@@ -367,24 +188,14 @@
 								 </div>
 								 <div class="well" style="overflow: auto;" id="tab">
                    <form action="" class="form-horizontal">
- 										<table class="table table-striped"  id="table">
-                        <tr>
+ 										<table class="table table-striped"  id="tabf">
+                        <thead>
 														<th>Item Name</th>
                             <th>Barcode</th>
                             <th>Sale Price</th>
                             <th>Qty</th>
-                        </tr>
+                        </thead>
 												<tbody>
-
-												<!-- <% for (var i = 0; i < showroom.length; i++) {%>
-												<tr>
-												<td><%= showroom[i].itemName%></td>
-												<td><%= showroom[i].barCode %></td>
-											  <td><%= showroom[i].salePrice %></td>
-												<td><%= showroom[i].Qty %></td>
-
-												</tr>
-												<%}%> -->
 												</tbody>
 											</table>
 										</form>
@@ -692,11 +503,7 @@
                     </div>
                   <!-- </div>
                                   </div> -->
-    <script>
-        $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-            })
-    </script>
+
 		<!-- <script type="text/javascript">
 			function search() {
 			}
@@ -726,6 +533,11 @@ $('.btn').click(function(){
 		</script> -->
     <script rel="stylesheet" src="/js/jquery.min.js"></script>
     <script rel="stylesheet" src="/js/bootstrap.min.js"></script>
+		<script>
+        $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+            })
+    </script>
 		<script type="text/javascript">
 
 			$('#barcode').blur(function(){
@@ -735,7 +547,7 @@ $('.btn').click(function(){
 						if (result.data != null) {
 							$('#itemname').val(result.data.itemName);
 							$('#itemtype').val(result.data.itemType);
-							$('#brandname').val(result.data.brandName);
+							$('#brandname').val(result.data.brand_id.name);
 							$('#saleprice').val(result.data.salePrice);
 							$('#amount').val(result.data.salePrice);
 						}
@@ -754,7 +566,6 @@ $('.btn').click(function(){
 				function calculate() {
 					var price=document.getElementById('saleprice').va
 				}
-			}
 		</script>
 		<script type="text/javascript">
 		function showtime(){
@@ -782,18 +593,17 @@ $('.btn').click(function(){
 			$('#tab').hide();
 			function myFunction(clickid) {
 				$('#tab').show();
-				var brand={brandname:$('#brandname').val()};
-				var type={itemtype:$('#itemtype').val()};
+				$("#tabf tbody").empty();
+				var datap={brand:$('#bname').val(),type:$('#ctype').val()};
 				$.ajax({
-					url:'/sales/saleadd',
+					url:'/sales/finditem',
 					type:'POST',
-					data:{},
+					data:datap,
 					success:function (result) {
 						if (result.data) {
-							var a=0;
-							var data=result.showroom[0];
-							for (var i = 0; i < data.showroom.length; i++) {
-									var search="<tr><td>"+data.
+							for(var i = 0; i < result.data.length; i++){
+								var markup = "<tr><td>" + result.data[i].itemName +"</td><td>" + result.data[i].barCode + "</td><td>" + result.data[i].salePrice +"</td><td>"+result.data[i].Qty+"</td></tr>";
+								$("#tabf tbody").append(markup);
 							}
 
 						}
