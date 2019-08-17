@@ -101,7 +101,7 @@
     <div class="row">
       <div class="col-md-4">
          <div class="well" style="overflow: auto;">
-            <form action="/sales/saleadd" class="form-horizontal" method="post">
+            <form action="#" class="form-horizontal" method="post">
               <center><table>
               	<tr>
                   <td style="padding: 3px;"><label for="barcode" class="col-md-6" style="width:50%; text-align: right;">Barcode:</label></td>
@@ -151,7 +151,7 @@
                             </style>
 														<center>
 															<div class="col-md-12">
-                                <input type="submit" style="width: 80px;color:white;" id="totalprofit" name="" value="insert" class="btn">&nbsp;
+                                <input type="button" style="width: 80px;color:white;" id="totalprofit" name="" value="insert" class="btn" onclick="additem(this.form);">&nbsp;
                             	</div>
 														</center>
 
@@ -236,18 +236,19 @@
                                     <br>
                 <div class="well" style="overflow: auto;">
                   <form action="" class="form-horizontal">
-										<table class="table table-striped" >
+										<table class="table table-striped" id="tabre">
 											<h4><b><i>Sale Table</i></b></h4>
-                       <tr>
-                           <th>Barcode</th>
-                           <th>Item Name</th>
-                           <th>Sale Price</th>
-                           <th>Qty</th>
-                           <th>Amount</th>
-                       </tr>
-                       <tr>
+											<thead>
+												<th>Barcode</th>
+												<th>Item Name</th>
+												<th>Sale Price</th>
+												<th>Qty</th>
+												<th>Amount</th>
+												<th>Remove</th>
+											</thead>
+                       <tbody>
 
-                       </tr>
+                       </tbody>
 
                       </table>
                        <style type="text/css">
@@ -263,19 +264,13 @@
                                 }
 
                             </style>
-               <!--
-                            <div class="col-md-6" style="text-align: right;">
-                                <a href="#"><input type="button" value="Confirm" class="button"></a>
 
-                            </div> -->
 
                             <div class="col-md-12" style="text-align: right;">
                                 <label for="totalprofit" style="width: 150px;text-align: right; color: black;"><button>Total</button></label>
                                 <input type="text" style="width: 80px;" id="totalprofit">&nbsp;
                             </div>
-                       <!-- <div class="col-md-7">
-                         <label for="slipno" style="width:100px; text-align: right; ">Total:</label>
-                       </div> -->
+
 
                    <style type="text/css">
                                 .button{
@@ -299,215 +294,17 @@
                             </style>
                 <div class="col-md-7" style="text-align: right;">
                     <a href="/sales/salevoucher"><input type="button" value="Print" class="button"></a>&nbsp;
-                    <a href="#"><input type="button" value="Check Out" class="Cancel"></a>
+                    <a href="#"><input type="button" value="Check Out" class="btn btn-primary"></a>
                 </div><br><br>
                </form>
                </div>
             </div><br>
-					
- <div class="modal" tabindex="-1" role="dialog"  id="exampleModal" style="margin-left: 850px; height: auto;">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="width: 400px;">
-                      <!-- <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div> -->
-
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true" style="margin-right: 5px; color: black;">&times;</span>
-                        </button>
-                    <div class="modal-body">
-                        <style type="text/css">
-                            .modal-body{
-                              margin-left: 13px;
-                              padding: 0;
-                              display: flex;
-                              justify-content: center;
-                              align-items: center;
-                              //background: url(picture/123.jpeg);
-                              background-size: cover;
-                              font-family: 'TimeNewRoman','Poppins';
-                              height: 100vh;
-                            }
-                            .calender{
-                              width: 300px;
-                              height: auto;
-                              background: #fff;
-                              box-sizing: border-box;
-                              border: 1px solid pink;
-
-                              box-shadow: 20px 20px 5px rgba(0,0,0,0.5);
-                            }
-                            .calender .date{
-                              padding: 20px;
-                              display: grid;
-                              grid-template-columns: repeat(auto-fit,minmax(25px,1fr));
-                              grid-gap: 10px;
-                              box-sizing: border-box;
-                            }
-                            .calender .date div{
-                              display: flex;
-                              justify-content: center;
-                              align-items: center;
-                              height: 25px;
-                              color: #262626;
-
-                            }
-                            .calender .date div.day{
-                              font-weight: 700;
-                            }
-                            .calender .date div.day:first-child,
-                            .calender .date div.number:nth-child(7n + 1)
-                            {
-                              color: #ff685d;
-                              font-weight: 700;
-                            }
-
-                            .calender .date div.number.active
-                            {
-                              background: #3C3B90;
-                              color: #fff;
-                              font-weight: 700;
-                              cursor: pointer;
-                            }
-                            .calender .date div.number:hover
-                            {
-                              background: #2D546B;
-                              color: #fff;
-                              font-weight: 700;
-                              cursor: pointer;
-                            }
-                            .calender .image{
-                              width: 100%;
-                              height: 200px;
-                              background: url(picture/banner2.jpg);
-                              background-size: cover;
-                              padding: 25px;
-                              box-sizing: border-box;
-                            }
-                            .calender .image h3
-                            {
-                              margin: 0;
-                              padding: 0;
-                              color: #83C;
-
-                              font-weight: 100;
-                            }
-                            .calender .image h3:hover
-                            {
-
-                              text-shadow: 1px 2px 2px #000;
-                              font-weight: 1000;
-                              cursor: pointer;
-                            }
-
-                            .calender .image h4
-                            {
-                              font-weight: 300;
-                              margin-top: 10px;
-                              padding: 0;
-                              color: navy;
-                              text-shadow: 1px 1px 2px rgba(0,0,0,.2);
-
-                            }
-                          </style>
-
-                            <div class="calender">
-                            <div class="image">
-
-                              <h3>20,Thursday</h3>
-
-                              <h4>June/2019</h4>
-
-                            </div>
-                                <div class="date">
-                                    <div class="day">S</div>
-                                    <div class="day">M</div>
-                                    <div class="day">T</div>
-                                    <div class="day">W</div>
-                                    <div class="day">T</div>
-                                    <div class="day">F</div>
-                                    <div class="day">S</div>
-
-                                    <div class="number"></div>
-                                    <div class="number"></div>
-                                    <div class="number"></div>
-                                    <div class="number"></div>
-                                    <div class="number"></div>
-                                    <div class="number"></div>
-                                    <div class="number">1</div>
-                                    <div class="number">2</div>
-                                    <div class="number">3</div>
-                                    <div class="number">4</div>
-                                    <div class="number">5</div>
-                                    <div class="number">6</div>
-                                    <div class="number">7</div>
-                                    <div class="number">8</div>
-                                    <div class="number">9</div>
-                                    <div class="number">10</div>
-
-                                    <div class="number">11</div>
-                                    <div class="number">12</div>
-                                    <div class="number">13</div>
-                                    <div class="number">14</div>
-                                    <div class="number">15</div>
-                                    <div class="number">16</div>
-                                    <div class="number">17</div>
-                                    <div class="number">18</div>
-                                    <div class="number">19</div>
-                                    <div class="number active">20</div>
-
-                                    <div class="number">21</div>
-                                    <div class="number">22</div>
-                                    <div class="number">23</div>
-                                    <div class="number">24</div>
-                                    <div class="number">25</div>
-                                    <div class="number">26</div>
-                                    <div class="number">27</div>
-                                    <div class="number">28</div>
-                                    <div class="number">29</div>
-                                    <div class="number">30</div>
-                                    <!-- <div class="number">31</div> -->
-
-                                </div>
-                            </div>
-                      </div>
-                    <!-- <div style="text-align: center; margin-bottom: 30px;">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" >Close</button>
-                    </div> -->
-                    </div>
-                  <!-- </div>
-                                  </div> -->
-
-		<!-- <script type="text/javascript">
-			function search() {
-			}
-const Url="/sales/saleadd";
-var data={
-	showroom:Showroom
-}
-$('.btn').click(function(){
-	$.ajax({
-		url:Url,
-		type:'POST',
-		data:JSt=JSON.stringify(data),
-		contentType:"application/json; charset=utf-8",
-		dataType:"json",
-		error:function(){
-			alert("Error");
-		},
-		success: function(){
-			alert
-		}
-	})
-
-})
 
 
+        </div>
+      </div>
 
-		</script> -->
+
     <script rel="stylesheet" src="/js/jquery.min.js"></script>
     <script rel="stylesheet" src="/js/bootstrap.min.js"></script>
 		<script>
@@ -532,18 +329,23 @@ $('.btn').click(function(){
 					}
 			})
 			})
+
+			function additem(f) {
+				console.log(f.barcode.value);
+				var markup = "<tr class='"+f.barcode.value+"'><td>" + f.barcode.value +"</td><td>" + f.itemname.value + "</td><td>" + f.saleprice.value +"</td><td>"+f.qty.value+"</td><td>"+Number(f.qty.value)* Number(f.saleprice.value)+"</td><td><button onclick='removeI("+f.barcode.value+");'>clear</button></td></tr>";
+				$("#tabre tbody").append(markup);
+			}
+			function removeI(barc) {
+				console.log($("#tabre").find("tr."+barc));
+				$("#tabre").find("tr."+barc).remove();
+			}
 		</script>
 		<script type="text/javascript">
 			function fun(qty) {
 					$('#amount').val(Number($('#qty').val())*Number($('#saleprice').val()))
 			}
 		</script>
-		<script type="text/javascript">
 
-				function calculate() {
-					var price=document.getElementById('saleprice').va
-				}
-		</script>
 		<script type="text/javascript">
 		function showtime(){
 				var d = new Date(),
