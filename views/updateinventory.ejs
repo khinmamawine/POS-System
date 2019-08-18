@@ -40,7 +40,12 @@
                   </tr>
                   <tr>
                     <td style="padding: 3px;"><label for="brandname" class="bbbb col-md-6" style="width:160px;">Brand_Name:</label></td>
-                    <td><input type="text" class="cccc col-md-6" id="brandname" style="width: 200px;" name="brandname"  value="<%= showroom.brandName%>"></td>
+                    <td><select name="brand_id" id="brandname" onkeypress="" style="width: 70%;height:25px;">
+											<% for(var j = 0; j < brand.length; j++){%>
+													<option value="<%= brand[j]._id %>" <%= (brand[j]._id.equals(showroom.brand_id) )? "selected" : "" %> ><%= brand[j].name %></option>
+											<%}%>
+										</select>
+                  </td>
                   </tr>
                   <tr>
                     <td style="padding: 3px;"><label for="companyname" class="bbbb col-md-6" style="width:160px;">Company_Name:</label></td>

@@ -58,7 +58,7 @@ router.post('/inventoryadd',function(req,res){
                 itemType:req.body.itemtype,
                 barCode:req.body.barcode,
                 itemName:req.body.itemname,
-                brandName:req.body.brandname,
+                brand_id:req.body.brand_id,
                 companyName:req.body.companyname,
                 purchasePrice:req.body.purchaseprice,
                 salePrice:req.body.saleprice,
@@ -77,11 +77,15 @@ router.post('/inventoryadd',function(req,res){
 
             router.get('/update/:id',function(req,res){
               console.log('calls ');
-            Showroom.findById(req.params.id,function(err,rtn){
+              Showroom.findById(req.params.id,function(err,rtn){
                 if(err) throw err;
-                console.log(rtn);
-                  res.render('updateinventory',{showroom:rtn});
-            });
+                Brand.find({},(err2,rtn2)=>{
+                  if(err2) throw err2;
+                  console.log(rtn);
+                  res.render('updateinventory',{showroom:rtn,brand:rtn2});
+                })
+
+              });
             });
 
             router.get('/delete/:id',function(req,res){
