@@ -268,7 +268,7 @@
 
                             <div class="col-md-12" style="text-align: right;">
                                 <label for="totalprofit" style="width: 150px;text-align: right; color: black;"><button>Total</button></label>
-                                <input type="text" style="width: 80px;" id="totalprofit">&nbsp;
+                                <input type="text" style="width: 80px;" id="totalprofit"  onclick="sum()"  name="total" value="0">&nbsp;
                             </div>
 
 
@@ -334,7 +334,9 @@
 				console.log(f.barcode.value);
 				var markup = "<tr class='"+f.barcode.value+"'><td>" + f.barcode.value +"</td><td>" + f.itemname.value + "</td><td>" + f.saleprice.value +"</td><td>"+f.qty.value+"</td><td>"+Number(f.qty.value)* Number(f.saleprice.value)+"</td><td><button onclick='removeI("+f.barcode.value+");'>clear</button></td></tr>";
 				$("#tabre tbody").append(markup);
+
 			}
+
 			function removeI(barc) {
 				console.log($("#tabre").find("tr."+barc));
 				$("#tabre").find("tr."+barc).remove();
@@ -343,8 +345,10 @@
 		<script type="text/javascript">
 			function fun(qty) {
 					$('#amount').val(Number($('#qty').val())*Number($('#saleprice').val()))
+
 			}
 		</script>
+
 
 		<script type="text/javascript">
 		function showtime(){
