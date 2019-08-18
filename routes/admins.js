@@ -61,7 +61,7 @@ router.post('/inventoryadd',function(req,res){
                 brandName:req.body.brandname,
                 companyName:req.body.companyname,
                 purchasePrice:req.body.purchaseprice,
-                  salePrice:req.body.saleprice,
+                salePrice:req.body.saleprice,
                 startDate:req.body.startdate,
                 expDate:req.body.expdate,
                 Qty:req.body.qty,
