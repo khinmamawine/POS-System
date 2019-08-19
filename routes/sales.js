@@ -3,6 +3,7 @@ var router = express.Router();
 var Showroom= require('../model/Showroom');
 var Category = require('../model/Category');
 var Brand = require('../model/Brand');
+var Sale = require('../model/Sale');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -41,8 +42,13 @@ Showroom.findById(req.params.id,function(err,rtn){
 router.get('/changestaff',(req,res)=>{
   res.render('changestaff');
 });
-router.get('/salevoucher',(req,res)=>{
-  res.render('SaleVoucher');
+router.get('/salevoucher/:id',(req,res)=>{
+  console.log(req.session.users);
+  Sale.findById(req.params.id).populate('product.product_id').exec((err,rtn)=>{
+    if(err) throw err;
+    console.log(rtn);
+    res.render('SaleVoucher',{sale:rtn,sellerId:req.session.users.id,sellerName:req.session.users.name});
+  })
 });
 
 router.post('/checkbar',(req,res)=>{
@@ -58,4 +64,18 @@ router.post('/search',(req,res)=>{
     res.json({data:rtn});
 })
 });
+
+router.post('/checkout',(req,res)=>{
+  var sale = new Sale();
+  sale.product = req.body.product;
+  sale.total = req.body.tol;
+  sale.save((err,rtn)=>{
+    if(err) throw err;
+    console.log(rtn);
+    res.json({
+      status:true,
+      id:rtn._id
+    })
+  })
+})
 module.exports = router;

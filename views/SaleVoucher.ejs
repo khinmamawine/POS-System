@@ -60,7 +60,7 @@
                     <fieldset>
                         <legend><i>Sale Voucher</i></legend>
                     </fieldset><br>
-                <div class="col-md-4 btn-md col-md-offset-3">
+                <div class="col-md-4 btn-md col-md-offset-3" id="printArea">
                     <div class="well">
                         <form action="" class="form-horizontal">
                             <style>
@@ -75,21 +75,18 @@
 
                                 <div class="row">
                                     <div class="col-md-8 col-md-offset-4">
-                                        <label for="cname" style="width: 150px; text-align: right; font-size: 13px;">Casher_Name :</label>
-                                        <input type="hidden" id="cname" name="" style="width:50px;">
+                                        <label for="cname" style="width: 150px; text-align: right; font-size: 13px;">Casher_Name : <%= sellerName %></label>
                                     </div>
                                     <div class="col-md-8 col-md-offset-4">
-                                        <label for="cname" style="width: 150px; text-align: right; font-size: 13px;">Casher_ID :</label>
-                                        <input type="hidden" id="cname" name="" style="width:50px;">
+                                        <label for="cname" style="width: 350px; text-align: right; font-size: 13px;">Casher_ID : <%= sellerId %></label>
                                     </div>
                                 </div>
-                            <form class="" action="/sales/salevoucher" method="post">
 
 
                             <br><table>
                                 <tr>
                                     <td style="padding: 5px;">
-                                        <label for="slipno" class="col-md-12"  style="width:150px; text-align:right;">Slip_No :
+                                        <label for="slipno" class="col-md-12"  style="width:350px; text-align:right;">Slip_Id : <%= sale._id%>
                                         </label>
                                     </td>
 
@@ -97,7 +94,7 @@
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px;">
-                                        <label for="date" class=" col-md-12"  style="width:150px; text-align: right;">Date :
+                                        <label for="date" class=" col-md-12"  style="width:250px; text-align: right;">Date : <%= sale.inserted.getDate() %>/<%= sale.inserted.getMonth() %>/<%= sale.inserted.getFullYear() %>
                                         </label>
                                     </td>
 
@@ -107,22 +104,29 @@
                                 <tr>
                                     <table class="table table-hover table-striped table-responsive">
 
-                                        <tr>
+                                        <thead>
 
-                                            <th style="padding: 5px;"><label for="name" class="col-md-1" style="width:50px; text-align: right; ">Name:</label></th>
+                                            <th>Name:</th>
                                     <!-- <th colspan="2"><input type="text" class="col-md-4" id="total" style="width:200px;"></th> -->
 
-                                            <th style="padding: 5px;"><label for="qty" class="col-md-1" style="width:50px;  text-align: right; " >Qty:</label></th>
+                                            <th>Unit Price:</th>
 
-                                            <th style="padding: 5px;"><label for="amount" class="col-md-1" style="width:50px;  text-align: right; " >Amount:</label></th>
+                                            <th>Qty:</th>
+
+                                            <th>Amount:</th>
 
                                     <!-- <td> <input type="hidden" class="col-md-4" id="total" style="width:200px;"> </td> -->
-                                        </tr>
-                                        <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
+                                  </thead>
+                                        <tbody>
+                                          <% for(var i = 0; i< sale.product.length; i++){%>
+                                            <tr>
+                                              <th><%= sale.product[i].product_id.itemName %></th>
+                                              <th><%= sale.product[i].product_id.salePrice %></th>
+                                              <th><%= sale.product[i].count %></th>
+                                              <th><%= Number(sale.product[i].product_id.salePrice)* Number(sale.product[i].count) %></th>
+                                            </tr>
+                                          <%}%>
+                                        </tbody>
 
                                     </table>
                                 </tr>
@@ -131,7 +135,7 @@
                             <table>
                                 <tr>
                                     <td style="padding: 5px;"><label for="total" class="col-md-12"  style="width:150px; text-align: right; ">Total :</label></td>
-                                    <td><!-- <input type="text" class="col-md-4" id="total" style="width:130px;"> --></td>
+                                    <th> <%= sale.total %></th>
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px;">
@@ -194,21 +198,31 @@
                                 }
 
                             </style>
-                            <div class="col-md-12" style="text-align: right; ">
-                                <a href="/sales/saleadd" class="button">
-                                   <!--  <input type="button" value="Print" class="button"> -->
-                                    <span class="glyphicon glyphicon-print" ><br>
-                                        Print
-                                    </span>
-                                </a>
-                            </div><br><br>
-                        </form><br>
+
                     </div>
                 </div>
+                <div class="col-md-12" style="text-align: right; ">
+                    <buttons class="button" onclick="print();">
+                       <!--  <input type="button" value="Print" class="button"> -->
+                        <span class="glyphicon glyphicon-print" ><br>
+                            Print
+                        </span>
+                    </button>
+                </div><br><br>
             </div>
             </div>
         </div>
     <script rel="stylesheet" src="/js/jquery.min.js"></script>
     <script rel="stylesheet" src="/js/bootstrap.min.js"></script>
+    <script rel="stylesheet" src="/js/print.min.js"></script>
 </body>
+<script type="text/javascript">
+function print() {
+  printJS({
+      printable: 'printArea',
+      type: 'html',
+      targetStyles: ['*']
+  })
+}
+</script>
 </html>

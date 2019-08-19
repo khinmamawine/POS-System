@@ -102,6 +102,7 @@
       <div class="col-md-4">
          <div class="well" style="overflow: auto;">
             <form action="#" class="form-horizontal" method="post">
+							<input type="hidden" id="proid" name="proid" value="">
               <center><table>
               	<tr>
                   <td style="padding: 3px;"><label for="barcode" class="col-md-6" style="width:50%; text-align: right;">Barcode:</label></td>
@@ -293,8 +294,8 @@
                                 }
                             </style>
                 <div class="col-md-7" style="text-align: right;">
-                    <a href="/sales/salevoucher"><input type="button" value="Print" class="button"></a>&nbsp;
-                    <a href="#"><input type="button" value="Check Out" class="btn btn-primary"></a>
+                    <a id="printing"><input type="button" value="Print" class="button"></a>&nbsp;
+                    <a href="#"><input type="button" value="Check Out" onclick="checkfun();" class="btn btn-primary"></a>
                 </div><br><br>
                </form>
                </div>
@@ -324,17 +325,53 @@
 							$('#brandname').val(result.data.brand_id.name);
 							$('#saleprice').val(result.data.salePrice);
 							$('#amount').val(result.data.salePrice);
+							$('#qty').val(1);
+							$('#proid').val(result.data._id)
 						}
 
 					}
 			})
 			})
-
+			var product =[];
+			var tol = 0;
 			function additem(f) {
-				console.log(f.barcode.value);
-				var markup = "<tr class='"+f.barcode.value+"'><td>" + f.barcode.value +"</td><td>" + f.itemname.value + "</td><td>" + f.saleprice.value +"</td><td>"+f.qty.value+"</td><td>"+Number(f.qty.value)* Number(f.saleprice.value)+"</td><td><button onclick='removeI("+f.barcode.value+");'>clear</button></td></tr>";
-				$("#tabre tbody").append(markup);
+				var data = {};
+				Object.assign(data,{product_id:$('#proid').val()},{count:f.qty.value});
+				var index = product.findIndex(x => x.product_id === $('#proid').val());
+				if (index <= -1) {
+						product.push(data)
+						tol += (Number(f.qty.value)* Number(f.saleprice.value));
+						var markup = "<tr class='"+f.barcode.value+"'><td>" + f.barcode.value +"</td><td>" + f.itemname.value + "</td><td>" + f.saleprice.value +"</td><td>"+f.qty.value+"</td><td>"+Number(f.qty.value)* Number(f.saleprice.value)+"</td><td><button onclick='removeI("+f.barcode.value+");'>clear</button></td></tr>";
+						$("#tabre tbody").append(markup);
+					}
+					$('#itemname').val('');
+					$('#itemtype').val('');
+					$('#brandname').val('');
+					$('#saleprice').val('');
+					$('#amount').val('');
+					$('#barcode').val('');
+					$('#proid').val('')
+			}
 
+			function checkfun() {
+				const Url = "/sales/checkout";
+				var data = {
+					product : product,
+					tol : tol,
+				}
+					$.ajax({
+						url:Url,
+						type :'POST',
+						data :JSON.stringify(data),
+		  				contentType: "application/json; charset=utf-8",
+		  				dataType: "json",
+						success: function(result) {
+							if(result.status){
+								$('#printing').attr('href','/sales/salevoucher/'+result.id);
+								alert('checkout complete!!');
+							}
+						}
+					})
 			}
 
 			function removeI(barc) {
