@@ -50,56 +50,68 @@
                 <div class="col-md-12">
                     <ol class="pager">
                         <li class="previous"><span class="glyphicon glyphicon-list"style="padding-bottom: 8px;font-size: 20px;">&nbsp;/Sale</span></li>
-                        <!-- <li class="next"><a href="Admin.html"><span class="glyphicon glyphicon-home"style="padding-top: 8px;">&nbsp;/Admin Page<br><br></span></a></li> -->
+                        <li class="next"><a href="/sales/saleadd"><span class="glyphicon glyphicon-home"style="padding-top: 8px;">&nbsp;/Sale Page<br><br></span></a></li>
                     </ol>
                 </div>
             </div>
     <!-- -----------------------------------form------------------------------------- -->
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <fieldset>
                         <legend><i>Sale Voucher</i></legend>
-                    </fieldset><br>
-                <div class="col-md-4 btn-md col-md-offset-3" id="printArea">
+                    </fieldset>
+
+                    <br>
+                <div class="col-md-6 col-lg-5  col-sm-8 col-xs-12 col-lg-offset-4 col-md-offset-3 col-sm-offset-2" id="printArea">
                     <div class="well">
                         <form action="" class="form-horizontal">
                             <style>
-                            h3{
+                            h5{
                                 text-align: center;
                                 color: #157B76;
                                 text-shadow: 2px 2px 1px #000;
-                                font-size: 28px;
+                                font-size: 25px;
+                                width: 300px;
                             }
                             </style>
-                            <h3>Wine Cosmetic Shop</h3>
+                            <h5>Wine Cosmetic </h5>
+                                <div class="row" style="padding:3px;">
 
-                                <div class="row">
-                                    <div class="col-md-8 col-md-offset-4">
-                                        <label for="cname" style="width: 150px; text-align: right; font-size: 13px;">Casher_Name : <%= sellerName %></label>
+                                  <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                                    <label for="date"  style="width:100%; text-align: right; font-size: 13px;">Date : <%= sale.inserted.getDate() %>/<%= sale.inserted.getMonth() %>/<%= sale.inserted.getFullYear() %>
+                                    </label>
+                                  </div>
+                                    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                                        <label for="cname" style="width: 100%; text-align: right; font-size: 13px;">Casher_Name : <%= sellerName %></label>
                                     </div>
-                                    <div class="col-md-8 col-md-offset-4">
-                                        <label for="cname" style="width: 350px; text-align: right; font-size: 13px;">Casher_ID : <%= sellerId %></label>
+                                    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                                        <label for="cname" style="width: 100%; text-align: right; font-size: 13px;">Casher_ID : <%= sellerId %></label>
                                     </div>
-                                </div>
+                                    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                                      <label for="slipno"  style="width:100%; text-align:right;font-size: 13px;">Slip_Id : <%= sale._id%>
+                                      </label>
+                                    </div>
 
 
-                            <br><table>
-                                <tr>
+                              </div>
+                              <br>
+                            <table>
+                                <!-- <tr>
                                     <td style="padding: 5px;">
-                                        <label for="slipno" class="col-md-12"  style="width:350px; text-align:right;">Slip_Id : <%= sale._id%>
+                                        <label for="slipno" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  style="width:100%; text-align:right;">Slip_Id : <%= sale._id%>
                                         </label>
                                     </td>
 
-                                    <td><!-- <input type="text" class="col-md-4" id="slipno" style="width:130px;"> --></td>
-                                </tr>
+                                    <td><! <input type="text" class="col-md-4" id="slipno" style="width:130px;"> -->
+                                <!-- </tr>
                                 <tr>
                                     <td style="padding: 5px;">
-                                        <label for="date" class=" col-md-12"  style="width:250px; text-align: right;">Date : <%= sale.inserted.getDate() %>/<%= sale.inserted.getMonth() %>/<%= sale.inserted.getFullYear() %>
+                                        <label for="date" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  style="width:100%; text-align: right;">Date : <%= sale.inserted.getDate() %>/<%= sale.inserted.getMonth() %>/<%= sale.inserted.getFullYear() %>
                                         </label>
                                     </td>
 
                                     <td></td>
-                                </tr>
+                                </tr> -->
 
                                 <tr>
                                     <table class="table table-hover table-striped table-responsive">
@@ -134,19 +146,35 @@
                             </form>
                             <table>
                                 <tr>
-                                    <td style="padding: 5px;"><label for="total" class="col-md-12"  style="width:150px; text-align: right; ">Total :</label></td>
+                                    <td style="padding: 5px;"><label for="total"  style="width:170px; text-align: right; ">Total :</label></td>
                                     <th> <%= sale.total %></th>
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px;">
-                                        <label for="discount" class=" col-md-12"  style="width:150px; text-align: right;">Discount :
+                                        <label for="discount" style="width:170px; text-align: right;">Discount :
                                         </label>
                                     </td>
-                                    <td><!-- <input type="text" class=" col-md-4" id="discount"style="width:130px;"> --></td>
+                                    <th>0</th>
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px;">
-                                        <label for="tax" class=" col-md-12"  style="width:150px; text-align: right; ">Tax :
+                                        <label for="tax"  style="width:170px; text-align: right; ">Tax :
+                                        </label>
+                                    </td>
+
+                                    <th>0</th>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;">
+                                        <label for="netamount"  style="width:170px; text-align: right; ">Net_Amount :
+                                        </label>
+                                    </td>
+
+                                    <th> <%= sale.total %> </th>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;">
+                                        <label for="paid" style="width:170px; text-align: right; ">Paid :
                                         </label>
                                     </td>
 
@@ -154,22 +182,7 @@
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px;">
-                                        <label for="netamount" class=" col-md-12"  style="width:150px; text-align: right; ">Net_Amount :
-                                        </label>
-                                    </td>
-
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px;">
-                                        <label for="paid" class="col-md-12"  style="width:150px; text-align: right; ">Paid :
-                                        </label>
-                                    </td>
-
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px;"><label for="charges" class=" col-md-12"  style="width:150px; text-align: right;">Charges :</label></td>
+                                      <label for="charges" style="width:170px; text-align: right;">Charges :</label></td>
                                     <td></td>
                                 </tr>
                             </table><br>
@@ -201,14 +214,18 @@
 
                     </div>
                 </div>
-                <div class="col-md-12" style="text-align: right; ">
+                <div class="row">
+              <center>
+                <div class="col-lg-7 col-md-8 col-sm-9 col-xs-11 " style="text-align: right; ">
                     <buttons class="button" onclick="print();">
                        <!--  <input type="button" value="Print" class="button"> -->
                         <span class="glyphicon glyphicon-print" ><br>
                             Print
                         </span>
                     </button>
-                </div><br><br>
+                </div>
+              </center>
+              </div><br><br>
             </div>
             </div>
         </div>

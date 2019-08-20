@@ -69,25 +69,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<div class="navbar-collapse collapse" id="one">
-					<ul class="nav navbar-nav">
-						<li class="active" id="inva"><a href="/admins/inventorylist">ShowRoom</a></li>
-						<!-- <li class="#" id="ware"><a href="/admins/warehouselist">WareHouse</a></li> -->
-						<!-- <li class="#"><a href="#">about</a></li>
-						<li class="#"><a href="#">contact</a></li> -->
-					</ul>
-
-				 	<!-- <form action="" class="navbar-form navbar-left">
-				 							<div class="form-group">
-				 								<input type="text" class="form-control" placeholder="search" name="">
-				 							</div>
-				 								<input type="button" class="btn btn-default" value="search" >
-				 						</form>
-				 						<div class="nav navbar-nav navbar-right">
-				 							<li><a href="#">Login</a></li>
-				 							<li><a href="#">Register</a></li>
-				 						</div> -->
-				</div>
+			
 
 			</nav>
 		</div>
@@ -157,7 +139,7 @@
 									<td style="padding: 3px;"><label for="itemid" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Item_Type:</label></td>
 
 									<td>
-										<select name="itemtype" id="itemid" onkeypress="" style="width: 70%;height:25px;">
+										<select name="itemtype" id="itemid" onkeypress="" style="width: 70%;height:25px;border:none;border-radius:20px;">
 											<% for(var i = 0; i < category.length; i++){%>
 													<option value="<%= category[i].name %>"><%= category[i].name %></option>
 											<%}%>
@@ -167,16 +149,16 @@
 								</tr>
 								<tr>
 									<td style="padding: 3px;"><label for="barcode" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Barcode:</label></td>
-									<td><input type="number" class="col-md-6 col-sm-6" id="barcode" style="width: 70%;" name="barcode"></td>
+									<td><input type="number" class="col-md-6 col-sm-6" id="barcode" style="width: 70%;border:none;border-radius:20px;" name="barcode"></td>
 								</tr>
 								<tr>
 									<td style="padding: 3px;"><label for="itemname" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Item_Name:</label></td>
-									<td><input type="text" class="col-md-6 col-sm-6" id="itemname" style="width: 70%;" name="itemname"></td>
+									<td><input type="text" class="col-md-6 col-sm-6" id="itemname" style="width: 70%; border:none;border-radius:20px;" name="itemname"></td>
 								</tr>
 								<tr>
 									<td style="padding: 3px;"><label for="brandname" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Brand_Name:</label></td>
 									<td>
-										<select name="brand_id" id="brandname" onkeypress="" style="width: 70%;height:25px;">
+										<select name="brand_id" id="brandname" onkeypress="" style="width: 70%;height:25px; border:none;border-radius:20px;">
 											<% for(var j = 0; j < brand.length; j++){%>
 													<option value="<%= brand[j]._id %>"><%= brand[j].name %></option>
 											<%}%>
@@ -185,7 +167,7 @@
 								</tr>
 								<tr>
 									<td style="padding: 3px;"><label for="companyname" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Company_Name:</label></td>
-									<td><input type="text" class="col-md-6 col-sm-6" id="companyname" style="width: 70%;" name="companyname"></td>
+									<td><input type="text" class="col-md-6 col-sm-6" id="companyname" style="width: 70%; border:none;border-radius:20px;" name="companyname"></td>
 								</tr><br>
 								<!-- <tr>
 									<td style="padding: 3px;"><label for="purchaseprice" class="col-md-6" style="width:150px; text-align: right;">PurchasePrice:</label></td>
@@ -193,29 +175,29 @@
 								</tr> -->
 								<tr>
 									<td style="padding: 3px;"><label for="Saleprice" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Purchase_Price:</label></td>
-									<td><input type="text" class="col-md-6 col-sm-6" id="Saleprice" style="width: 70%;" name="purchaseprice"></td>
+									<td><input type="text" class="col-md-6 col-sm-6" id="Saleprice" style="width: 70%;border:none;border-radius:20px;" name="purchaseprice"></td>
 								</tr>
 								<tr>
 
 									<td style="padding: 3px;"><label for="Saleprice" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Sale_Price:</label></td>
-									<td><input type="text" class="col-md-6 col-sm-6" id="Saleprice" style="width: 70%;" name="saleprice"></td>
+									<td><input type="text" class="col-md-6 col-sm-6" id="Saleprice" style="width: 70%; border:none;border-radius:20px;" name="saleprice"></td>
 								</tr>
 								<tr>
 									<td style="padding: 3px;"><label for="qty" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Qty:</label></td>
-									<td><input type="text" class="col-md-6 col-sm-6" id="qty" style="width:70%;" name="qty"></td>
+									<td><input type="text" class="col-md-6 col-sm-6" id="qty" style="width:70%; border:none;border-radius:20px;" name="qty"></td>
 								</tr>
 								<tr>
                     <td style="padding: 3px;"><label for="startdate" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Start_Date:</label></td>
-                    <td><input type="date" class="col-md-6 col-sm-6" id="startdate" style="width: 70%;" name="startdate"></td>
+                    <td><input type="date" class="col-md-6 col-sm-6" id="startdate" style="width: 70%; border:none;border-radius:20px;" name="startdate"></td>
                 </tr>
                 <tr>
                   	<td style="padding: 3px;"><label for="expdate" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Expire_Date:</label></td>
-                    <td><input type="date" class="col-md-6 col-sm-6" id="expdate" style="width:70%;" name="expdate"></td>
+                    <td><input type="date" class="col-md-6 col-sm-6" id="expdate" style="width:70%; border:none;border-radius:20px;" name="expdate"></td>
                 </tr>
 
 								<tr>
 									<td style="padding: 3px;"><label for="remark" class="col-md-6 col-sm-6" style="width:100%; text-align: right;">Remark:</label></td>
-									<td><input type="text" class="col-md-6 col-sm-6" id="remark" style="width:70%;" name="remark"></td>
+									<td><input type="text" class="col-md-6 col-sm-6" id="remark" style="width:70%; border:none;border-radius:20px;" name="remark"></td>
 
 								</tr>
 							</table></center>
@@ -261,8 +243,8 @@
                         </style>
 
 							<div class="col-md-3 colmd-offset-8 text-right">
-                            <span class="input-group-addon" style="text-align: right;">Search:&nbsp;
-                                <input type="text" name="" class="glyphicon glyphicon-search" id="searchBtn" onkeyup="myFunction();">&nbsp;&nbsp;&nbsp;
+                            <span class="input-group-addon" style="text-align: right;border:none;border-radius:20px;height:40px;">Search:&nbsp;
+                                <input type="text" name="" class="glyphicon glyphicon-search" id="searchBtn" style="border:none;border-radius:20px;height:30px;" onkeyup="myFunction();">&nbsp;&nbsp;&nbsp;
                                 <a href="#"><span class="glyphicon glyphicon-search"></span></a>
                             </span>
                     		</div>
