@@ -110,21 +110,21 @@
                 </tr>
                 <tr>
                   <td style="padding: 3px;"><label for="itemname" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="width:50%; text-align: right;">Item_Name:</label></td>
-                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="itemname" style="width: 100%;border:none; border-radius:10px;" name="itemname"></td>
+                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="itemname" style="width: 100%;border:none; border-radius:10px;" name="itemname" readonly></td>
                 </tr>
                 <tr>
                   <td style="padding: 3px;"><label for="itemtype" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="width:50%; text-align: right;">Item_Type:</label></td>
-                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="itemtype" style="width: 100%; border:none; border-radius:10px;" name="itemtype"></td>
+                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="itemtype" style="width: 100%; border:none; border-radius:10px;" name="itemtype" readonly></td>
                 </tr>
                 <tr>
                 <tr>
                   <td style="padding: 3px;"><label for="brandname" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="width:50%; text-align: right;">Brand_Name:</label></td>
-                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="brandname" style="width: 100%; border:none; border-radius:10px;" name="brandname"></td>
+                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="brandname" style="width: 100%; border:none; border-radius:10px;" name="brandname" readonly></td>
                 </tr>
 
                 <tr>
                   <td style="padding: 3px;"><label for="Saleprice" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="width:50%; text-align: right;">Sale_Price:</label></td>
-                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="saleprice" style="width: 100%;border:none; border-radius:10px;" name="saleprice"></td>
+                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="saleprice" style="width: 100%;border:none; border-radius:10px;" name="saleprice" readonly></td>
                 </tr>
                 <tr>
                   <td style="padding: 3px;"><label for="qty" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="width:50%; text-align: right;">Qty:</label></td>
@@ -132,7 +132,7 @@
                 </tr>
                 <tr>
                   <td style="padding: 3px;"><label for="remark" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="width:50%; text-align: right;">Amount:</label></td>
-                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="amount" style="width: 100%;border:none; border-radius:10px;" name="amount"></td>
+                  <td><input type="text" class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="amount" style="width: 100%;border:none; border-radius:10px;" name="amount" readonly></td>
                 </tr>
                 </table>
 							</center><br>
@@ -152,7 +152,7 @@
                             </style>
 														<center>
 															<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                <input type="button" style="width: 80px;color:white;" id="totalprofit" name="" value="insert" class="btn" onclick="additem(this.form);">&nbsp;
+                                <input type="button" style="width: 80px;color:white;" name="" value="insert" class="btn" onclick="additem(this.form);">&nbsp;
                             	</div>
 														</center>
 
@@ -266,7 +266,7 @@
 
                             <div class="col-md-12" style="text-align: right;">
                                 <label for="totalprofit" style="width: 150px;text-align: right; color: black;"><button>Total</button></label>
-                                <input type="text" style="width: 80px;" id="totalprofit"  onclick="sum()"  name="total" value="0">&nbsp;
+                                <input type="text" style="width: 80px;" id="totalprofit"  name="total" value="0">&nbsp;
                             </div>
 
 
@@ -331,13 +331,14 @@
 			var tol = 0;
 			function additem(f) {
 				var data = {};
-				Object.assign(data,{product_id:$('#proid').val()},{count:f.qty.value});
+				Object.assign(data,{product_id:$('#proid').val()},{count:f.qty.value},{barc:f.barcode.value});
 				var index = product.findIndex(x => x.product_id === $('#proid').val());
 				if (index <= -1) {
 						product.push(data)
 						tol += (Number(f.qty.value)* Number(f.saleprice.value));
-						var markup = "<tr class='"+f.barcode.value+"'><td>" + f.barcode.value +"</td><td>" + f.itemname.value + "</td><td>" + f.saleprice.value +"</td><td>"+f.qty.value+"</td><td>"+Number(f.qty.value)* Number(f.saleprice.value)+"</td><td><button onclick='removeI("+f.barcode.value+");'>clear</button></td></tr>";
+						var markup = "<tr class='"+f.barcode.value+"'><td>" + f.barcode.value +"</td><td>" + f.itemname.value + "</td><td>" + f.saleprice.value +"</td><td>"+f.qty.value+"</td><td class='t"+f.barcode.value+"'>"+Number(f.qty.value)* Number(f.saleprice.value)+"</td><td><button onclick='removeI("+f.barcode.value+");'>clear</button></td></tr>";
 						$("#tabre tbody").append(markup);
+						$('#totalprofit').val(tol)
 					}
 					$('#itemname').val('');
 					$('#itemtype').val('');
@@ -370,8 +371,17 @@
 			}
 
 			function removeI(barc) {
+				var rem = Number($("#tabre").find("tr."+barc).find("td:eq(4)").text());
 				console.log($("#tabre").find("tr."+barc));
 				$("#tabre").find("tr."+barc).remove();
+				var index = product.findIndex(x => x.barc == barc);
+				console.log(index);
+				if (index > -1) {
+					product.splice(index, 1);
+					tol -= rem;
+				}
+				$('#totalprofit').val(tol)
+				console.log(product);
 			}
 		</script>
 		<script type="text/javascript">
