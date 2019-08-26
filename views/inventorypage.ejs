@@ -69,7 +69,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-			
+
 
 			</nav>
 		</div>
@@ -279,9 +279,9 @@
 						<td><%= showroom[i].companyName %></td>
 						<td><%= showroom[i].purchasePrice %></td>
 						<td><%= showroom[i].salePrice %></td>
+						<td><%= showroom[i].Qty %></td>
 						<td><%= showroom[i].startDate %></td>
 						<td><%= showroom[i].expDate %></td>
-						<td><%= showroom[i].Qty %></td>
 						<td><%= showroom[i].Remark %></td>
 						<td><a href="/admins/update/<%=showroom[i]._id %>"><input type="submit" value="update"></a></td>
 						<td><center><input type="button" name="btn" value="Delete" onclick="del('<%= showroom[i]._id%>')"></a></center></td>

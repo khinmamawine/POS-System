@@ -77,7 +77,7 @@ router.post('/stafflogin', function(req, res, next) {
       res.redirect('/stafflogin')
     }else{
       req.session.users = {email: rtn.Email, name: rtn.Name, roll: "management",  id:rtn._id};
-      res.redirect('/sales/staff');
+      res.redirect('/sales/saleadd');
 
     }
   });
