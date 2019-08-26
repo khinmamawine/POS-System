@@ -179,7 +179,7 @@
 												<tbody>
 									<% for (var i = 0; i < expanses.length; i++) {%>
 										<tr>
-								<td><%= expanses[i].startDate %></td>
+								<td><%= expanses[i].startDate.getFullYear() %>-<%= expanses[i].startDate.getMonth()+1 %>-<%= expanses[i].startDate.getDate() %></td>
 								<td><%= expanses[i].Description %></td>
 								<td><%= expanses[i].Amount%></td>
 								<td><%= expanses[i].Remark %></td>

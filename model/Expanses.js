@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
  var ExpansesSchema = new Schema({
 startDate:{
-     type: String,
+     type: Date,
      required:true,
    },
 
@@ -11,7 +11,7 @@ startDate:{
      required:true,
    },
 Amount:{
-      type: String,
+      type: Number,
       required:true,
     },
   Remark:{
