@@ -9,6 +9,7 @@ var Staffmanagement=require('../model/Staffmanagement');
 var Expanses=require('../model/Expanses');
 var Brand=require('../model/Brand');
 var Category=require('../model/Category');
+var Sale = require('../model/Sale');
 var multer = require('multer');
 var upload = multer({ dest:'public/images/uploads'});
 /* GET users listing. */
@@ -453,7 +454,61 @@ router.post('/warehouseadd',function(req,res){
     });
 
     router.get('/profit',(req,res)=>{
-      res.render('Profit&Loss');
+      Sale.aggregate(
+       [
+          {
+            $group : {
+               _id : { month: { $month: "$inserted" }, year: { $year: "$inserted" } },
+               totalPrice: { $sum: "$total" },
+               count: { $sum: 1 }
+            }
+          }
+       ]
+        ).sort({inserted:1}).exec(function (err,rtn) {
+          if(err) throw err;
+          console.log(rtn);
+          Expanses.aggregate(
+           [
+              {
+                $group : {
+                   _id : { month: { $month: "$startDate" }, year: { $year: "$startDate" } },
+                   totalPrice: { $sum: "$Amount" },
+                   count: { $sum: 1 }
+                }
+              }
+           ]
+         ).sort({startDate:1}).exec(function (err2,rtn2) {
+           Sale.aggregate(
+            [
+               {
+                 $group : {
+                    _id : { year: { $year: "$inserted" } },
+                    totalPrice: { $sum: "$total" },
+                    count: { $sum: 1 }
+                 }
+               }
+            ]
+          ).sort({inserted:1}).exec(function (err3,rtn3) {
+               if(err3) throw err3;
+               console.log(rtn3);
+               Expanses.aggregate(
+                [
+                   {
+                     $group : {
+                        _id : { year: { $year: "$startDate" } },
+                        totalPrice: { $sum: "$Amount" },
+                        count: { $sum: 1 }
+                     }
+                   }
+                ]
+              ).sort({startDate:1}).exec(function (err4,rtn4) {
+              if(err4) throw err4
+              console.log(rtn4);
+              res.render('Profit&Loss',{sale:rtn,expan:rtn2,ysale:rtn3,yexpan:rtn4});
+            });
+          });
+        });
+      });
     });
 
     router.get('/changeAdmin',(req,res)=>{
