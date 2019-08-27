@@ -37,11 +37,11 @@ salePrice:{
    },
    expDate:{
        type:String,
-        required:true,
+      required:true,
    },
 
   Qty:{
-     type: String,
+     type: Number,
      required:true,
 
    },

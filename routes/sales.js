@@ -66,6 +66,19 @@ router.post('/search',(req,res)=>{
 });
 
 router.post('/checkout',(req,res)=>{
+  // var ids = [];
+  var data = req.body.product;
+  // for (i of data) {
+  //   ids.push(data[i].product_id);
+  // }
+  for (var i = 0; i < data.length; i++) {
+    console.log('calling data',i);
+    Showroom.findByIdAndUpdate(data[i].product_id,{$inc:{Qty: -Number(data[i].count)}},(err,rtn)=>{
+      if(err) throw err;
+      console.log('????',rtn);
+    });
+  }
+  // Showroom.update({_id:{$in:ids}},{})
   var sale = new Sale();
   sale.product = req.body.product;
   sale.total = req.body.tol;

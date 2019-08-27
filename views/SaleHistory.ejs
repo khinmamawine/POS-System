@@ -95,7 +95,7 @@
                                     </style>
 
 
-                                
+
                             </fieldset><br><br>
                         </div>
 
@@ -143,21 +143,22 @@
                         <form action="/salehistory" method="POST" class="form-horizontal">
 
                             <table class="table table-bordered">
+
                         <tr>
 
                             <th>Sale Date</th>
-                            <th>Customer</th>
-                            <th>Total Item</th>
-                            <th>Total Price</th>
+                            <th>Sale Count</th>
+                            <th>Total Sale</th>
 
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+												<% for(var i = 0; i < sales.length; i++){%>
+													<tr>
+	                            <td><%= sales[i]._id.day %>-<%= sales[i]._id.month %>-<%= sales[i]._id.year %></td>
+	                            <td><%= sales[i].count %></td>
+	                            <td><%= sales[i].totalPrice %></td>
+	                        </tr>
+												<%}%>
 
-                        </tr>
 
                     </table>
                          <style type="text/css">
@@ -195,4 +196,10 @@
     <script rel="stylesheet" src="/js/jquery.min.js"></script>
     <script rel="stylesheet" src="/js/bootstrap.min.js"></script>
 </body>
+	<script type="text/javascript">
+		var date = new Date();
+		 var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+		 var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+		 console.log(firstDay,lastDay);
+	</script>
 </html>

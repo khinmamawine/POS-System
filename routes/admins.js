@@ -526,8 +526,30 @@ router.post('/warehouseadd',function(req,res){
     });
 
     router.get('/salehistory',(req,res)=>{
-      res.render('SaleHistory');
+      var date = new Date();
+  		 var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+  		 var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+      Sale.aggregate(
+       [
+         {
+           $match : {
+             inserted:{$gt:firstDay,$lt:lastDay}
+           }
+         },
+          {
+            $group : {
+               _id : { month: { $month: "$inserted" }, day: { $dayOfMonth: "$inserted" }, year: { $year: "$inserted" } },
+               totalPrice: { $sum: "$total" },
+               count: { $sum: 1 }
+            }
+          }
+       ]
+        ).sort({inserted:1}).exec(function (err,rtn) {
+          if(err) throw err;
+          console.log(rtn);
+          res.render('SaleHistory',{sales:rtn});
     });
+  });
 
     router.get('/summaries',(req,res)=>{
       Staffmanagement.find({},function(err,rtn){
